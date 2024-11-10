@@ -1,0 +1,83 @@
+.flex-container {
+    display: flex;
+}
+.flex-item {
+    flex: 20;
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 15px;
+}
+#encabezado{
+    background-color: #EAC240;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+#footer {
+    background: linear-gradient(to top, #28A0F6, #a3d9ff, #8ecefd);
+    padding: auto;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+/* Estilo solo para los elementos con la clase 'titulo' dentro del header */
+.titulo {
+    font-family: 'Cinzel Decorative', serif; /* Usamos la fuente Cinzel */
+    font-style: bold;
+    font-size: 22pt; /* Definimos el tamaño de fuente a 20 puntos */
+    font-weight: lighter;
+    display: inline;
+    vertical-align: middle;
+}
+
+.logo{
+    width: 105px; /* Ajustamos el tamaño del logo */
+    height: auto;/* Mantener la proporción original */
+    margin-right: 2px;/* Espacio entre el logo y el texto */
+    top: 0;
+    left: 0;
+    vertical-align: middle;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between; /* Distribuye las secciones del footer uniformemente */
+    align-items: center; /* Alinea verticalmente el contenido */
+    text-align: center; /* Centra el texto en cada columna */
+}
+
+form .form-control {
+    width: 200px; /* Ancho de la barra de búsqueda */
+}
+
+.footer-links {
+    flex: 1;
+    margin: 0 2px; /* Espacio entre columnas */
+}
+
+.footer-links h4 {
+    font-size: 17px;
+    margin-bottom: 10px; /* Añade espacio debajo del título */
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 3px 0;
+}
+
+.inferior {
+    display: block;
+    margin: 0 auto 10px auto; /* Centra la imagen y añade espacio debajo */
+    width: 80px; /* Ajustamos el tamaño del logo */
+    height: auto;/* Mantener la proporción original */
+}
