@@ -78,7 +78,7 @@
     width: 100%;
     max-width: 490px;
     box-sizing: border-box;
-    min-height: 100vh;
+    min-height: 80vh;
 }
 
 #checkbox-container {
