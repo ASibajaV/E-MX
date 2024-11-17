@@ -1,18 +1,18 @@
- .navbar-brand1{
+.navbar-brand1{
     font-family: "Cinzel Decorative", serif;
-      font-optical-sizing: auto;
-      font-style: normal;
+    font-optical-sizing: auto;
+    font-style: normal;
     }
     .nav-item{
         font-size: 14px;
     }
     .btn{
-        font-size: 11px;
+        font-size: 15px;
     
     }
     #contenedor2{
-       height: 100px;
-       background: linear-gradient(#73C2FB,#73C2FB,#28A0F6);
+        height: 100px;
+        background: linear-gradient(#73C2FB,#73C2FB,#28A0F6);
     }
     .list{
         font-family: "Fjalla One", sans-serif;
@@ -63,7 +63,7 @@
     border-radius: 15px; /* Bordes redondeados */
     width: 100%; /* Ocupa todo el ancho del contenedor */
     max-width: 400px; /* Tamaño máximo para limitar el crecimiento */
-    height: auto; /* Mantén la proporción de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
     object-fit: cover; /* Asegura que la imagen se recorte correctamente */
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Sombra opcional */
 }
@@ -79,6 +79,13 @@
     max-width: 490px;
     box-sizing: border-box;
     min-height: 100vh;
+}
+
+#checkbox-container {
+    display:flex;
+    align-items: center; /* Alinea verticalmente el texto y el checkbox */
+    gap: 10px; /* Ajusta la separación entre el checkbox y el texto */
+    margin-bottom: 10px; /* Espaciado entre los contenedores */
 }
 
 h1{
@@ -151,4 +158,3 @@ h1{
         text-align: center; /* Centra el título en dispositivos móviles */
     }
 }
-
