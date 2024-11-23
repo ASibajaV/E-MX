@@ -68,6 +68,7 @@ document.getElementById("enviar").addEventListener("click",function(event)
        });
       } else {
         sendEmail();
+        document.querySelectorAll("p").reset();
         setTimeout(()=>{
           document.getElementById("form").reset();
       },1500)}
