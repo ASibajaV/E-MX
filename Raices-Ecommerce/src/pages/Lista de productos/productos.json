@@ -1,0 +1,25 @@
+[
+    {
+    "id": 1, "imagen": "lele.png", "name":"Muñeca Lele", "precio":"300.00","descripcion":"Some quick example text to build on the card title and make up the bulk of the card's content." ,"inventario": 5, "categoría": "Bolsas"
+    }, 
+    {
+    "id": 2, "imagen": "bolsa1.png", "name":"Bolsa Elegante", "precio":"300.00", "descripcion":"Some quick example text to build on the card title and make up the bulk of the card's content.", "inventario": 5, "categoría": "Bolsa"
+    }, 
+    {
+    "id": 3, "imagen": "bolsa.png", "name":"Bolsa versatil", "precio":"300.00", "descripcion":"Some quick example text to build on the card title and make up the bulk of the card's content.", "inventario": 5, "categoría": "Bolsa"
+    }, 
+    {
+    "id": 4, "imagen": "plata.png", "name":"Pulsera de plata", "precio":"300.00", "descripcion":"Some quick example text to build on the card title and make up the bulk of the card's content.", "inventario": 5, "categoría": "Joyeria"
+    }, 
+    {
+    "id": 5, "imagen": "miel1.png", "name":"Miel de conserva", "precio":"300.00", "descripcion":"Some quick example text to build on the card title and make up the bulk of the card's content.", "inventario": 5, "categoría": "Miel"
+    }, 
+    {
+    "id": 6, "imagen": "cafecien.png", "name":"Cafe de Veracruz", "precio":"300.00", "descripcion":"Some quick example text to build on the card title and make up the bulk of the card's content.", "inventario": 5, "categoría": "Cafe"
+    },
+    {
+    "id": 7, "imagen": "sol.png", "name":"Collar de sol", "precio":"300.00", "descripcion":"Some quick example text to build on the card title and make up the bulk of the card's content.", "inventario": 5, "categoría": "Joyeria"
+        }
+
+]
+    
