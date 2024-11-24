@@ -3,10 +3,11 @@ function addItem(item) {
     <div class="card" style="width: 18rem;">
       <img src="${item.imagen}" class="card-img-top" alt="${item.name}">
       <div class="card-body">
-        <h5 class="card-title">${item.name}</h5>
+        <center><h5 class="card-title">${item.name}</h5></center>
         <p class="card-text">${item.descripcion}</p>
+        <center>
         <p class="card-text">Precio: $${item.precio}</p>
-        <a href="#" class="btn btn-primary"> Comprar </a>
+        <a href="#" class="btn btn-primary"> Comprar </a></center>
       </div>
     </div>
   `;

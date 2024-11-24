@@ -54,7 +54,7 @@ nav {
   background-color: #f0f0f0;
   text-align: center;
   /*padding: 10px;*/
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
   display: flex;
   justify-content: center;
@@ -67,12 +67,14 @@ nav {
   height: 150px; 
   object-fit: cover;
   border-radius: 50%;
+  opacity: 90%;
   /*margin-bottom: 10px;*/
   
  
   
 }
 
+/* Para los textos de las categorías */
 .categoria p {
   font-family: 'Cinzel Decorative';
   font-weight: bold;
@@ -81,7 +83,7 @@ nav {
   position: absolute;
   color: white;
   font-weight: bolder;
-  
+  text-shadow: black 2px 2px 3px;
 
 }
 
@@ -109,6 +111,25 @@ nav {
 .cartas_productos{
     Margin: 30px;
 
+}
+
+
+.flex-container{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    
+}
+
+.card{
+    border-radius: 15px;
+        background: linear-gradient(135deg, #F06292, #BA68C8);
+        color: #fff;
+        max-width: 350px;
+         margin: 0 auto;
+         display: inline;
+          max-height: 550px;
 }
 /*-----------------------------------------------------------------------------*/
 

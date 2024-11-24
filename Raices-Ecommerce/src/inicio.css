@@ -97,7 +97,9 @@ header{
         background-color: #64b5f6;
         border: none;
         
-    }html, body {
+    }
+    
+    html, body {
         margin: 20;
         padding: 20;
         overflow-x: hidden;
