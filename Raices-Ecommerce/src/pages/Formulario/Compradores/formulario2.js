@@ -1,23 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const estados = ["Elige", "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Coahuila", "Colima", "Chiapas", "Chihuahua", "Durango", "Ciudad de México", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "México", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas"];
-    const inputState = document.getElementById("inputState");
 
-    estados.forEach((estado, index) => {
-        const option = document.createElement("option");
-        option.value = estado;
-        option.textContent = estado;
-
-        // Si es el primer elemento, agrégalo como predeterminado
-        if (index === 0) {
-            option.selected = true;
-            option.disabled = true; // Deshabilitar "Elige" por defecto
-        }
-
-        inputState.appendChild(option);
-    });
-});
-
-function generarObjetoUsuario() {
+// funcion para el json
+    function generarObjetoUsuario() {
     const nombre = document.getElementById("nombre").value.trim();
     const apellido = document.getElementById("apellido").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -204,3 +187,24 @@ function validarFormulario() {
     return true;
 }
 generarObjetoUsuario()
+
+
+// Para validar solo que seleccione un estado de la lista
+document.addEventListener("DOMContentLoaded", () => {
+    const estados = ["Elige", "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Coahuila", "Colima", "Chiapas", "Chihuahua", "Durango", "Ciudad de México", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "México", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas"];
+    const inputState = document.getElementById("inputState");
+
+    estados.forEach((estado, index) => {
+        const option = document.createElement("option");
+        option.value = estado;
+        option.textContent = estado;
+
+        // Si es el primer elemento, agrégalo como predeterminado
+        if (index === 0) {
+            option.selected = true;
+            option.disabled = true; // Deshabilitar "Elige" por defecto
+        }
+
+        inputState.appendChild(option);
+    });
+});
