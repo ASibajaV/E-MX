@@ -63,6 +63,8 @@ fetch('productos.json')
 const categoriaCafe = document.getElementById("catCafe");
 const categoriaMiel = document.getElementById("catMiel"); 
 const categoriaTodos = document.getElementById("allProd");
+const categoriaBolsas = document.getElementById("catBolsas");
+const categoriaJoyeria = document.getElementById("catJoyeria");
 
 categoriaCafe.addEventListener('click', () => {
   const productosFiltrados = filtrarProductos(productos, 'Cafe');
@@ -70,6 +72,16 @@ categoriaCafe.addEventListener('click', () => {
 });
 categoriaMiel.addEventListener('click', () => {
   const productosFiltrados = filtrarProductos(productos, 'Miel');
+  mostrarProductos(productosFiltrados);
+});
+
+categoriaBolsas.addEventListener('click', () => {
+  const productosFiltrados = filtrarProductos(productos, 'Bolsa');
+  mostrarProductos(productosFiltrados);
+});
+
+categoriaJoyeria.addEventListener('click', () => {
+  const productosFiltrados = filtrarProductos(productos, 'Joyeria');
   mostrarProductos(productosFiltrados);
 });
 
