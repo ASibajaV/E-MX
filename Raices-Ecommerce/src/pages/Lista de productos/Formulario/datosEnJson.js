@@ -133,6 +133,34 @@ function obtenerDatosFormulario(event) {
     const estado = document.getElementById('estado').value;
     const descripcion = document.getElementById('descripcion').value;
 
+    if (id===""){
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Ingresa id";
+    }
+    else if (imagen===""){
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Ingresa imagen";
+    }
+    else if(name==="" || name.match(/[0-9]/g)){
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Ingresa un nombre valido para tu producto";
+    }
+    else if(precio==="" || precio.match(/[a-z]/g)){
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Ingresa un precio valido";
+    }
+    else if(descripcion===""){
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Ingresa una descripción";
+    } else {
+        document.getElementById("mostrarJson").className= "alert alert-success";
+        document.getElementById("mostrarJson").setAttribute("role","alert");
+
     // Crear un objeto con los datos
     const datosProducto = {
         id: id,
@@ -153,9 +181,14 @@ function obtenerDatosFormulario(event) {
 
     const mostrarJson = document.getElementById('mostrarJson');
     mostrarJson.textContent = datosJSON; 
-
     
+
 }
+
+   
+}
+
+
 
 // Agregar el event listener al botón de envío
 btnEnviar.addEventListener('click', obtenerDatosFormulario);
