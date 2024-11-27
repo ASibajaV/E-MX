@@ -20,6 +20,7 @@ const listaDeProductos=[
     {
     "id": 7, "imagen": "./imagenes/sol.png", "name":"Collar de sol", "precio":"300.00", "descripcion":"Some quick example text to build on the card title and make up the bulk of the card's content.", "inventario": 5, "categoría": "Joyeria"
         }
+    
 ]
 
 //funcion pra mostrar los productos
@@ -125,7 +126,7 @@ function obtenerDatosFormulario(event) {
 
     // Recuperar los valores de los campos
     const id = document.getElementById('id').value;
-    const imagen = document.getElementById('imagen').value; // Si necesitas la URL de la imagen, usa el atributo 'value'
+    const imagen = document.getElementById('imagen').value; 
     const name = document.getElementById('name').value;
     const precio = document.getElementById('precio').value;
     const inventario = document.getElementById('inventario').value;
