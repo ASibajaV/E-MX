@@ -44,8 +44,11 @@ login.onclick = (e) => {
       Swal.fire({
         icon: "success",
         title: "Bienvenidx, " + usuarioInput,
-        timer: 3000, // Tiempo en milisegundos (3 segundos)
+        timer: 2500, // Tiempo en milisegundos (2.5 segundos)
         });
+      setTimeout(() => {
+          window.location.href = "../Inicio/index.html"; //Para llevar al usuarix a la página de inicio después de un login existoso.
+      }, 3000);
       
     //Con este else if evita el mensaje "Usuario y/o contraseña erroneo" de abajo si el usuarix no puso usuario ni contraseña
     }else if((contrasenaInput === "")||(usuarioInput === "")){
@@ -59,4 +62,5 @@ login.onclick = (e) => {
         
       });
     }
+
 }
