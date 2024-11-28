@@ -154,3 +154,30 @@ function validarFormulario() {
     return true;
   }
   
+// Función para enviar un correo con los datos 
+  function sendEmail(){
+    const name= document.getElementById("nombre").value.trim();
+    const correo= document.getElementById("email").value.trim();
+    const telefono=document.getElementById("telefono").value.trim(); 
+    const mensaje= `Nombre Completo: ${name}<br> Email: ${email}<br> Telefono: ${telefono} `
+    Email.send({
+      SecureToken :"1a1a5808-4ed8-4982-8750-a86e4536262e",
+      To : 'abigailfloresvilleda@gmail.com',
+      From : "abigailfloresvilleda@gmail.com",
+      Subject : "Contacto",
+      Body : mensaje,
+  }).then(
+    message => {
+      if(message==="OK"){
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Tu mensaje ha sido enviado",
+          showConfirmButton: false,
+          timer: 1000
+        });
+      }
+    } 
+  );
+  }
+  
