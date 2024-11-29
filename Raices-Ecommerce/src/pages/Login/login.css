@@ -165,7 +165,7 @@ img, input, nav {
 }
 
 /* Botones */
-#botonStyle {
+#botonStyle, #loginButton {
   display: inline-block;
   margin-top: 20px;
   padding: 10px 20px;

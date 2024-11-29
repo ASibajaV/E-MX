@@ -19,7 +19,7 @@
     <div class="container-fluid d-flex flex-row text-bg-warning ">
         <nav class="navbar text-bg-warning w-139">
             <div class="container">
-              <a class="avatar" href="#">
+              <a class="avatar" href="../Inicio/index.html">
                 <img src="../../assets/Images/caco.png" alt="Bootstrap" width="150" height="150">
               </a>
             </div>
@@ -56,7 +56,7 @@
                       <a class="nav-link productos"
                       href="../../pages/Sobre Nosotros/nosotros.html">Nosotros</a>
                     </li>
-                      <a href="../../pages/Formulario/formulario.html">
+                      <a href="../Formulario/Compradores/formulario.html">
                         <button type="button" class="btn btn-light ms-3 align-items-start mb-2">Sign In</button>
                       </a>
                       
@@ -85,7 +85,7 @@
             <p>Ingrese su información para iniciar sesión</p>
             <input id="inputNombreUsuario" type="text" placeholder="NOMBRE DE USUARIO">
             <input id="inputContrasena" type="password" placeholder="CONTRASEÑA">
-            <button id="botonStyle" class="btn btn-primary">Regístrate</button>
+            <input type="submit" name="registrate" id="loginButton" value="Regístrate">
           </div>
         </div>
 
@@ -101,7 +101,7 @@
           <div id="boxStyleBottom" class="card text-center">
             <p>¿Primera vez como cliente?</p>
             <p>Regístrate para comprar artesanías hechas con manos mexicanas.</p>
-            <a href="/Raices-Ecommerce/src/pages/Formulario/formulario.html">
+            <a href="../Formulario/Compradores/formulario.html">
                 <button id="botonStyle" class="btn btn-primary">Crea tu cuenta</button>
             </a>
           </div>
@@ -119,7 +119,7 @@
           <div id="boxStyleBottom" class="card text-center">
             <p>¿Quieres vender tus productos?</p>
             <p>Crea tu cuenta y descubre cómo puedes venderlos aqui.</p>
-            <a href="/Raices-Ecommerce/src/pages/Formulario/formulario.html">
+            <a href="../Formulario/Artesano/artesano.html">
                 <button id="botonStyle" class="btn btn-primary">Crea tu cuenta</button>
             </a>                
           </div>
@@ -137,7 +137,7 @@
               <div class="footer-links">
                   <h4>Sobre Nosotros</h4>
                   <ul role="navigation">
-                      <li><a href="#">¿Quiénes somos?</a></li>
+                      <li><a href="../Sobre Nosotros/nosotros.html">¿Quiénes somos?</a></li>
                       <li><a href="#">Recursos</a></li>
                       <li><a href="#">Involúcrate</a></li>
                       <li><a href="#">Trabaja con nosotros</a></li>
@@ -180,7 +180,8 @@
           </div>
       </div>
   </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="login.js"></script>
 </body>
 </html>
