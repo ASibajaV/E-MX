@@ -36,6 +36,7 @@ function validarFormulario() {
     const apellido = document.getElementById("apellido").value.trim();
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
+    const passPassword = document.getElementById("passPassword").value.trim();
     const direccion = document.getElementById("direccion").value.trim();
     const telefono = document.getElementById("telefono").value.trim();
     const codigoPostal = document.getElementById("cp").value.trim();
@@ -104,6 +105,15 @@ function validarFormulario() {
             icon: "error",
             title: "Contraseña insegura",
             text: "La contraseña debe tener al menos 8 caracteres",
+        });
+        return false;
+    }
+    // Valir que sea igual la contraseña
+    if(password!==passPassword){
+        Swal.fire({
+            icon: "error",
+            title: "Contraseña incorrecta",
+            text: "La contraseña debe ser exactamente 'Password'",
         });
         return false;
     }
