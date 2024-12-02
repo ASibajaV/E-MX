@@ -1,23 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const estados = ["Elige", "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Coahuila", "Colima", "Chiapas", "Chihuahua", "Durango", "Ciudad de México", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "México", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas"];
-    const inputState = document.getElementById("inputState");
 
-    estados.forEach((estado, index) => {
-        const option = document.createElement("option");
-        option.value = estado;
-        option.textContent = estado;
-
-        // Si es el primer elemento, agrégalo como predeterminado
-        if (index === 0) {
-            option.selected = true;
-            option.disabled = true; // Deshabilitar "Elige" por defecto
-        }
-
-        inputState.appendChild(option);
-    });
-});
-
-function generarObjetoUsuario() {
+// funcion para el json
+    function generarObjetoUsuario() {
     const nombre = document.getElementById("nombre").value.trim();
     const apellido = document.getElementById("apellido").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -43,7 +26,7 @@ function generarObjetoUsuario() {
     const usuarioJSON = JSON.stringify(usuario, null, 2); // Formateado para mejor visualización (opcional)
     
     // Mostrar el JSON en la consola para pruebas
-    console.log("Usuario generado:", usuarioJSON);
+    console.log(usuarioJSON);
 
     return usuarioJSON; // Devolver el JSON por si necesitas usarlo en otro lugar
 }
@@ -53,6 +36,7 @@ function validarFormulario() {
     const apellido = document.getElementById("apellido").value.trim();
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
+    const passPassword = document.getElementById("passPassword").value.trim();
     const direccion = document.getElementById("direccion").value.trim();
     const telefono = document.getElementById("telefono").value.trim();
     const codigoPostal = document.getElementById("cp").value.trim();
@@ -64,8 +48,11 @@ function validarFormulario() {
     const telefonoRegex = /^[0-9]{10,}$/;
     const codigoPostalRegex = /^[0-9]{5}$/;
 
+
     // Validar nombre
     if (nombre === "") {
+        document.getElementById("nombre").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("nombre").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
             title: "Campo vacío",
@@ -73,6 +60,8 @@ function validarFormulario() {
         });
         return false;
     } else if (!soloLetrasRegex.test(nombre)) {
+        document.getElementById("nombre").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("nombre").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
             title: "Formato incorrecto",
@@ -83,6 +72,8 @@ function validarFormulario() {
 
     // Validar apellido
     if (apellido === "") {
+        document.getElementById("apellido").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("apellido").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
             title: "Campo vacío",
@@ -90,6 +81,8 @@ function validarFormulario() {
         });
         return false;
     } else if (!soloLetrasRegex.test(apellido)) {
+        document.getElementById("apellido").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("apellido").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
             title: "Formato incorrecto",
@@ -100,6 +93,8 @@ function validarFormulario() {
 
     // Validar email
     if (email === "") {
+        document.getElementById("email").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("email").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
             title: "Campo vacío",
@@ -107,6 +102,8 @@ function validarFormulario() {
         });
         return false;
     } else if (!emailRegex.test(email)) {
+        document.getElementById("email").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("email").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
             title: "Formato incorrecto",
@@ -117,6 +114,8 @@ function validarFormulario() {
 
     // Validar contraseña
     if (password.length < 8) {
+        document.getElementById("password").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("password").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
             title: "Contraseña insegura",
@@ -124,9 +123,20 @@ function validarFormulario() {
         });
         return false;
     }
+    // Valir que sea igual la contraseña
+    if(password!==passPassword){
+        Swal.fire({
+            icon: "error",
+            title: "Contraseña incorrecta",
+            text: "La contraseña debe ser exactamente 'Password'",
+        });
+        return false;
+    }
 
     // Validar dirección
     if (direccion === "") {
+        document.getElementById("direccion").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("direccion").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
             title: "Campo vacío",
@@ -134,6 +144,8 @@ function validarFormulario() {
         });
         return false;
     } else if (!direccionRegex.test(direccion)) {
+        document.getElementById("direccion").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("direccion").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
             title: "Formato incorrecto",
@@ -144,6 +156,8 @@ function validarFormulario() {
 
     // Validar estado
     if (estadoSeleccionado === "Elige") {
+        document.getElementById("inputState").className="alert alert-danger pt-2 pb-2";
+        document.getElementById("inputState").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
             title: "Estado no seleccionado",
@@ -154,6 +168,8 @@ function validarFormulario() {
 
     // Validar C.P
     if (!codigoPostalRegex.test(codigoPostal)) {
+        document.getElementById("cp").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("cp").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
             title: "Formato incorrecto",
@@ -164,6 +180,8 @@ function validarFormulario() {
 
     // Validar teléfono
     if (telefono === "") {
+        document.getElementById("telefono").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("telefono").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
             title: "Campo vacío",
@@ -171,6 +189,8 @@ function validarFormulario() {
         });
         return false;
     } else if (!telefonoRegex.test(telefono)) {
+        document.getElementById("telefono").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("telefono").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
             title: "Formato incorrecto",
@@ -187,10 +207,10 @@ function validarFormulario() {
             text: "Por favor, marca la casilla para continuar.",
         });
         return false;
-    }
+    } else {
 
     // Si todas las validaciones pasan
-    const usuarioJSON = generarObjetoUsuario();
+    generarObjetoUsuario();
 
     Swal.fire({
         icon: "success",
@@ -203,4 +223,30 @@ function validarFormulario() {
 
     return true;
 }
-generarObjetoUsuario()
+}
+
+
+document.getElementById("registro").addEventListener("click",(evento)=>{
+    evento.preventDefault();
+   validarFormulario();
+})
+
+// Para validar solo que seleccione un estado de la lista
+document.addEventListener("DOMContentLoaded", () => {
+    const estados = ["Elige", "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Coahuila", "Colima", "Chiapas", "Chihuahua", "Durango", "Ciudad de México", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "México", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas"];
+    const inputState = document.getElementById("inputState");
+
+    estados.forEach((estado, index) => {
+        const option = document.createElement("option");
+        option.value = estado;
+        option.textContent = estado;
+
+        // Si es el primer elemento, agrégalo como predeterminado
+        if (index === 0) {
+            option.selected = true;
+            option.disabled = true; // Deshabilitar "Elige" por defecto
+        }
+
+        inputState.appendChild(option);
+    });
+});
