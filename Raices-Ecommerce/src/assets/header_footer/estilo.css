@@ -22,26 +22,12 @@ header{
         font-size: 16px;
     
     }
-    .contenedor {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem 1rem;
-        text-align: center;
-      }
+    /* Para ocultar la sección de agregar productos*/
+    #oculto{
+        display: none;
+        }
       
-      /* Títulos */
-      .tagline {
-        font-size: 0.9rem;
-        color: #ff7a59; /* Color para destacar la etiqueta */
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        margin-bottom: 0.5rem;
-        display: inline-block;
-        margin-bottom: 0.5rem;
-  display: inline-block;
-  animation: fadeIn 9s ease-out, textZoom 1.5s ease-in-out;
-  
-      }
+
     .footer {
         width: 100%;
         margin: 0;
