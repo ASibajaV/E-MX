@@ -6,11 +6,11 @@ function headerRM(){
       <div class="container-fluid">
         <nav class="navbar"> <!-- navbar para el link del logo -->
           <section> 
-            <a class="navbar-brand" href="../Inicio/inicio.html">
-              <img src="./caco.png" alt="Raíces México" width="100"> <!---->
+            <a class="navbar-brand" href="/Raices-Ecommerce/src/inicio.html">
+              <img src="/Raices-Ecommerce/src/assets/Images/caco.png" alt="Raíces México" width="100"> <!---->
             </a> 
           </section>        
-          <section class="container-flex|">
+          <section class="container-flex">
             <span class="navbar-brand1 mb-0 fs-2  ">Raíces  México</span>
           </section>
         </nav>
@@ -21,23 +21,38 @@ function headerRM(){
           <section class="container d-flex flex-column align-items-end h-50 mt-3 " style="
   margin-right: 0px;">  
           <ul class="navbar-nav my-2 my-lg-0" style="--bs-scroll-height: 100px;">
+          <!--Permanecera oculto y solo sera visible para los artesanos-->
+          <li class="nav-item me-2">
+            <a class="nav-link" id="oculto" href="#">Agregar Productos</a>
+          </li>
             <li class="nav-item me-2">
-              <a class="nav-link" href="../Lista de productos/Formulario/formularioProduct.html">Productos</a>
+              <a class="nav-link" href="/Raices-Ecommerce/src/pages/Lista de productos/catalogo.html">Productos</a>
             </li>
             <li class="nav-item me-2">
-              <a class="nav-link" href="../Contactanos/contactanos.html">Contactanos</a>
+              <a class="nav-link" href="/Raices-Ecommerce/src/pages/Contactanos/contactanos.html">Contactanos</a>
             </li>
             <li class="nav-item me-2">
-              <a class="nav-link" href="../Sobre Nosotros/nosotros.html">Nosotros</a>
+              <a class="nav-link" href="/Raices-Ecommerce/src/pages/Sobre Nosotros/nosotros.html">Nosotros</a>
             </li>
-            <a class="nav-item me-2" href="../Login/login.html">
-              <button type="button" class="btn btn-light align-items-end mb-2 rounded-pill"style="
-  width: 126px">Iniciar sesión</button>
-            </a>
-            <a class="nav-item me-2" href="../Login/login.html">
-              <button type="button" class="btn btn-dark align-items-end mb-2 rounded-pill" style="
-  width: 126px">Registrate</button>
-            </a>
+            <!---->
+            <li>
+              <a class="nav-item me-2" href="/Raices-Ecommerce/src/pages/Login/login.html">
+                <button type="button" class="btn btn-light align-items-end mb-2 rounded-pill"style="
+    width: 126px">Iniciar sesión</button>
+              </a> </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="
+      padding-top: 0px;">
+                  <button type="button" class="btn btn-dark align-items-end mb-2 rounded-pill" style="
+    width: 126px"> 
+                  Registrate
+                </button>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Soy artesano </a></li>
+                  <li><a class="dropdown-item" href="#">Soy comprador </a></li>
+                </ul>
+              </li>
           </ul>
             
       <section >
@@ -62,18 +77,17 @@ function footerRM(){
               <div class="footer-links">
                   <h4>Sobre Nosotros</h4>
                   <ul role="navigation">
-                      <li><a href="#">Quienes somos</a></li>
-                      <li><a href="#">Recursos</a></li>
+                      <li><a href="#">¿Quiénes somos?</a></li>
+                      <li><a href="#">Misión y visión</a></li>
                       <li><a href="#">Involúcrate</a></li>
-                      <li><a href="#">Trabaja con nosotros</a></li>
+                      <li><a href="#">Conoce al equipo</a></li>
                   </ul>
               </div>
               <div class="footer-links">
                   <h4>Politíca de privacidad</h4>
                   <ul>
-                      <li><a href="#">Politíca de privacidad</a></li>
-                      <li><a href="#">Cómo funcionamos</a></li>
-                      <li><a href="#">Declaración de Transparencia</a></li>
+                      <li><a href="#">Política de privacidad</a></li>
+                      <li><a href="#">¿Cómo funcionamos?</a></li>
                       <li><a href="#">Asuntos económicos</a></li>
                   </ul>
               </div>
@@ -83,14 +97,12 @@ function footerRM(){
                       <li><a href="#">Términos y Condiciones</a></li>
                       <li><a href="#">¿Necesitas ayuda?</a></li>
                       <li><a href="#">Métodos de pago</a></li>
-                      <li><a href="#">Facturación</a></li>
-    
                   </ul>
               </div>
               <div class="footer-links">
                   <h4>Aviso de copyright</h4>
                   <ul>
-                      <li><a href="#">©2001-2024 Todos los derechos reservados. Raíces.MX® es una marca registrada
+                      <li><a href="#">©2024 Todos los derechos reservados. Raíces-MX® es una marca registrada
                               de
                               E-MX-HANDS.</a></li>
                   </ul>
@@ -101,7 +113,6 @@ function footerRM(){
                       <a href="#"><i class="fab fa-facebook"></i></a>
                       <a href="#"><i class="fab fa-instagram"></i></a>
                       <a href="#"><i class="fab fa-twitter"></i></a>
-                      <a href="#"><i class="fab fa-linkedin"></i></a>
                   </div>
               </div>
           </div>
