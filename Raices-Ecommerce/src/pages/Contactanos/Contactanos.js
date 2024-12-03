@@ -1,5 +1,3 @@
-
-
 document.getElementById("enviar").addEventListener("click",function(event)
 {   event.preventDefault();
     const name= document.getElementById("nombre").value.trim();
