@@ -11,7 +11,7 @@ function headerRM(){
             </a> 
           </section>        
           <section class="container-flex">
-            <span class="navbar-brand1 mb-0 fs-2  ">Raíces  México</span>
+            <span class="navbar-brand1 mb-0 fs-2">Raíces  México</span>
           </section>
         </nav>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,42 +77,40 @@ function footerRM(){
               <div class="footer-links">
                   <h4>Sobre Nosotros</h4>
                   <ul role="navigation">
-                      <li><a href="#">¿Quiénes somos?</a></li>
-                      <li><a href="#">Misión y visión</a></li>
-                      <li><a href="#">Involúcrate</a></li>
-                      <li><a href="#">Conoce al equipo</a></li>
+                      <li><a href="/Raices-Ecommerce/src/pages/Sobre Nosotros/nosotros.html">¿Quiénes somos?</a></li>
+                      <li><a target="_blank" href="/Raices-Ecommerce/src/assets/Images/MVV.png">Misión y visión</a></li>
+                      <li><a href="/Raices-Ecommerce/src/pages/Contactanos/contactanos.html">Involúcrate</a></li>
+                      <li><a href="/Raices-Ecommerce/src/pages/Sobre Nosotros/nosotros.html#equipoChicatana">Conoce al equipo</a></li>
                   </ul>
               </div>
               <div class="footer-links">
                   <h4>Politíca de privacidad</h4>
                   <ul>
-                      <li><a href="#">Política de privacidad</a></li>
-                      <li><a href="#">¿Cómo funcionamos?</a></li>
-                      <li><a href="#">Asuntos económicos</a></li>
+                      <li><a target="_blank" href="/Raices-Ecommerce/src/assets/PDFs/POLÍTICA DE PRIVACIDAD.pdf">Política de privacidad</a></li>
+                      <li><a target="_blank" href="/Raices-Ecommerce/src/assets/PDFs/como funcionamos.pdf">¿Cómo funcionamos?</a></li>
+                      <li><a target="_blank" href="/Raices-Ecommerce/src/assets/PDFs/Asuntos Economicos.pdf">Asuntos económicos</a></li>
                   </ul>
               </div>
               <div class="footer-links">
                   <h4>Servicio al cliente</h4>
                   <ul>
-                      <li><a href="#">Términos y Condiciones</a></li>
-                      <li><a href="#">¿Necesitas ayuda?</a></li>
-                      <li><a href="#">Métodos de pago</a></li>
+                      <li><a target="_blank" href="/Raices-Ecommerce/src/assets/PDFs/Términos y condiciones (E-MX).pdf">Términos y Condiciones</a></li>
+                      <li><a href="/Raices-Ecommerce/src/pages/Contactanos/contactanos.html">¿Necesitas ayuda?</a></li>
+                      <li><a target="_blank"href="/Raices-Ecommerce/src/assets/PDFs/Métodos_pago.pdf">Métodos de pago</a></li>
                   </ul>
               </div>
               <div class="footer-links">
                   <h4>Aviso de copyright</h4>
                   <ul>
-                      <li><a href="#">©2024 Todos los derechos reservados. Raíces-MX® es una marca registrada
-                              de
-                              E-MX-HANDS.</a></li>
+                      <li><a target="_blank" href="/Raices-Ecommerce/src/assets/PDFs/AVISO DE COPYRIGHT.pdf">©2024 Todos los derechos reservados. Raíces-MX® es una marca registrada de E-MX-HANDS.</a></li>
                   </ul>
               </div>
               <div class="footer-links">
                   <h4>Síguenos</h4>
                   <div class="social-link">
-                      <a href="#"><i class="fab fa-facebook"></i></a>
-                      <a href="#"><i class="fab fa-instagram"></i></a>
-                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a target="_blank" href="https://www.facebook.com/profile.php?id=61569948054140"><i class="fab fa-facebook"></i></a>
+                      <a target="_blank" href="https://www.instagram.com/e.mex.hands.raicesmexico/"><i class="fab fa-instagram"></i></a>
+                      <a target="_blank" href="https://x.com/RaicesMexico_E"><i class="fab fa-twitter"></i></a>
                   </div>
               </div>
           </div>
