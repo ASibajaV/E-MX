@@ -49,8 +49,8 @@ function headerRM(){
                 </button>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Soy artesano </a></li>
-                  <li><a class="dropdown-item" href="#">Soy comprador </a></li>
+                  <li><a class="dropdown-item" href="/Raices-Ecommerce/src/pages/Formulario/Artesano/artesano.html">Soy artesano </a></li>
+                  <li><a class="dropdown-item" href="/Raices-Ecommerce/src/pages/Formulario/Compradores/formulario.html">Soy comprador </a></li>
                 </ul>
               </li>
           </ul>
