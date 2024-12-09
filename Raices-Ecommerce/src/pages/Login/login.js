@@ -47,7 +47,7 @@ login.onclick = (e) => {
         timer: 2500, // Tiempo en milisegundos (2.5 segundos)
         });
       setTimeout(() => {
-          window.location.href = "../Inicio/index.html"; //Para llevar al usuarix a la página de inicio después de un login existoso.
+          window.location.href = "/Raices-Ecommerce/src/inicio.html"; //Para llevar al usuarix a la página de inicio después de un login existoso.
       }, 3000);
       
     //Con este else if evita el mensaje "Usuario y/o contraseña erroneo" de abajo si el usuarix no puso usuario ni contraseña
