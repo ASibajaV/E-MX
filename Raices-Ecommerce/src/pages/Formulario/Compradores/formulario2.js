@@ -211,12 +211,21 @@ function validarFormulario() {
 
     // Si todas las validaciones pasan
     generarObjetoUsuario();
-
+    document.getElementById("nombre").className="form-control  pt-2 pb-2";
+    document.getElementById("apellido").className="form-control  pt-2 pb-2";
+    document.getElementById("email").className="form-control  pt-2 pb-2";
+    document.getElementById("password").className="form-control  pt-2 pb-2";
+    document.getElementById("direccion").className="form-control  pt-2 pb-2";
+    document.getElementById("telefono").className="form-control  pt-2 pb-2";
+    document.getElementById("cp").className="form-control  pt-2 pb-2";
+    setTimeout(()=>{
+        document.getElementById("miFormulario").reset();
+    },2000)
     Swal.fire({
         icon: "success",
         title: "Formulario válido",
         text: "¡Tu formulario ha sido enviado exitosamente!",
-        timer: 5000,
+        timer: 2000,
         timerProgressBar: true,
         showConfirmButton: false,
     });
