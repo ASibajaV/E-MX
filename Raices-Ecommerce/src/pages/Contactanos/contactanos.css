@@ -86,7 +86,34 @@ img, input, nav {
      border-radius: 50px ; 
      margin-top: 50px; 
 }
-
+#mensajeError1{
+    color: black;
+    font-size: 14px;
+    font-style: "Fjalla One" ; 
+    margin-bottom: 0;
+    visibility: hidden;
+}
+#mensajeError2{
+    color: black;
+    font-size: 14px;
+    font-style: "Fjalla One" ; 
+    margin-bottom: 0;
+    visibility: hidden;
+}
+#mensajeError3{
+    color: black;
+    font-size: 14px;
+    font-style: "Fjalla One" ; 
+    margin-bottom: 0;
+    visibility: hidden;
+}
+#mensajeError{
+    color: black;
+    font-size: 14px;
+    font-style: "Fjalla One" ; 
+    margin-bottom: 0;
+    visibility: hidden;
+}
 /* Estilos responsivos para dispositivos móviles */
 @media (max-width: 768px) {
  main{
