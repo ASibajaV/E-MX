@@ -8,26 +8,31 @@ function generarObjetoUsuario() {
     const telefono = document.getElementById("telefono").value.trim();
     const codigoPostal = document.getElementById("cp").value.trim();
     const estadoSeleccionado = document.getElementById("inputState").value;
+    const empresa = document.getElementById("inputAddress3").value.trim();
+    const tipoUsuario="artesano";
 
     // Crear un objeto JavaScript con los datos del formulario
-    const usuario = {
+    const vendedor = {
         nombre: nombre,
         apellido: apellido,
+        empresa:empresa,
         email: email,
         password: password,
         direccion: direccion,
         telefono: telefono,
         codigoPostal: codigoPostal,
         estado: estadoSeleccionado,
+        tipoUsuario: tipoUsuario,
     };
 
     // Convertir el objeto en formato JSON
-    const usuarioJSON = JSON.stringify(usuario, null, 2); // Formateado para mejor visualización (opcional)
+    const vendedorJSON = JSON.stringify(vendedor, null, 2); // Formateado para mejor visualización (opcional)
     
     // Mostrar el JSON en la consola para pruebas
-    console.log(usuarioJSON);
+    console.log(vendedorJSON);
 
-    return usuarioJSON; // Devolver el JSON por si necesitas usarlo en otro lugar
+    /* return vendedorJSON; */ // Devolver el JSON por si necesitas usarlo en otro lugar
+    localStorage.setItem("vendedor",vendedorJSON);
 }
 
 function validarFormulario() {
@@ -37,6 +42,7 @@ function validarFormulario() {
     const password = document.getElementById("password").value.trim();
     const passPassword = document.getElementById("passPassword").value.trim();
     const direccion = document.getElementById("direccion").value.trim();
+    const ciudad= document.getElementById("inputCity").value.trim();
     const telefono = document.getElementById("telefono").value.trim();
     const codigoPostal = document.getElementById("cp").value.trim();
     const estadoSeleccionado = document.getElementById("inputState").value;
@@ -58,7 +64,10 @@ function validarFormulario() {
             text: "El campo de Nombre no puede estar vacío",
         });
         return false;
-    } else if (!soloLetrasRegex.test(nombre)) {
+    } else {  
+        document.getElementById("nombre").className="form-control  pt-2 pb-2"; 
+    } 
+    if (!soloLetrasRegex.test(nombre)) {
         document.getElementById("nombre").className="form-control alert alert-danger pt-2 pb-2";
         document.getElementById("nombre").setAttribute("role", "alert");
         Swal.fire({
@@ -67,7 +76,7 @@ function validarFormulario() {
             text: "El Nombre solo debe contener letras y espacios",
         });
         return false;
-    }
+    } else { document.getElementById("nombre").className="form-control  pt-2 pb-2"; }
 
     // Validar apellido
     if (apellido === "") {
@@ -79,7 +88,8 @@ function validarFormulario() {
             text: "El campo de Apellido no puede estar vacío",
         });
         return false;
-    } else if (!soloLetrasRegex.test(apellido)) {
+    } else{ document.getElementById("apellido").className="form-control  pt-2 pb-2"}
+     if (!soloLetrasRegex.test(apellido)) {
         document.getElementById("apellido").className="form-control alert alert-danger pt-2 pb-2";
         document.getElementById("apellido").setAttribute("role", "alert");
         Swal.fire({
@@ -88,7 +98,7 @@ function validarFormulario() {
             text: "El Apellido solo debe contener letras y espacios",
         });
         return false;
-    }
+    } else {document.getElementById("apellido").className="form-control  pt-2 pb-2"}
 
     // Validar email
     if (email === "") {
@@ -100,7 +110,8 @@ function validarFormulario() {
             text: "El campo de Email no puede estar vacío",
         });
         return false;
-    } else if (!emailRegex.test(email)) {
+    } else {  document.getElementById("email").className="form-control  pt-2 pb-2"}
+     if (!emailRegex.test(email)) {
         document.getElementById("email").className="form-control alert alert-danger pt-2 pb-2";
         document.getElementById("email").setAttribute("role", "alert");
         Swal.fire({
@@ -109,30 +120,29 @@ function validarFormulario() {
             text: "El Email debe ser válido (contener '@' y un dominio)",
         });
         return false;
-    }
-
-    // Validar contraseña
-    if (password.length < 8) {
-        document.getElementById("password").className="form-control alert alert-danger pt-2 pb-2";
-        document.getElementById("password").setAttribute("role", "alert");
+    } else {document.getElementById("email").className="form-control  pt-2 pb-2"}
+    //valida telefono
+    if (telefono === "") {
+        document.getElementById("telefono").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("telefono").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
-            title: "Contraseña insegura",
-            text: "La contraseña debe tener al menos 8 caracteres",
+            title: "Campo vacío",
+            text: "El campo de Teléfono no puede estar vacío",
         });
         return false;
-    }
-    // Valir que sea igual la contraseña
-    if(password!==passPassword){
-        document.getElementById("password").className="form-control alert alert-danger pt-2 pb-2";
-        document.getElementById("password").setAttribute("role", "alert");
+    } else {document.getElementById("telefono").className="form-control pt-2 pb-2"} 
+    if (!telefonoRegex.test(telefono)) {
+        document.getElementById("telefono").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("telefono").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
-            title: "Contraseña incorrecta",
-            text: "La contraseña debe ser exactamente 'Password'",
+            title: "Formato incorrecto",
+            text: "El Teléfono debe ser válido (solo números y al menos 10 dígitos)",
         });
         return false;
-    }
+    } else {document.getElementById("telefono").className="form-control pt-2 pb-2"}
+   
 
     // Validar dirección
     if (direccion === "") {
@@ -144,7 +154,8 @@ function validarFormulario() {
             text: "El campo de Dirección no puede estar vacío",
         });
         return false;
-    } else if (!direccionRegex.test(direccion)) {
+    } else {document.getElementById("direccion").className="form-control  pt-2 pb-2"} 
+    if (!direccionRegex.test(direccion)) {
         document.getElementById("direccion").className="form-control alert alert-danger pt-2 pb-2";
         document.getElementById("direccion").setAttribute("role", "alert");
         Swal.fire({
@@ -153,19 +164,41 @@ function validarFormulario() {
             text: "La Dirección debe contener al menos un número",
         });
         return false;
-    }
-
+    } else {document.getElementById("direccion").className="form-control  pt-2 pb-2"}
+    // Validar ciudad
+    if (ciudad === "") {
+        document.getElementById("inputCity").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("inputCity").setAttribute("role", "alert");
+        Swal.fire({
+            icon: "error",
+            title: "Campo vacío",
+            text: "El campo de ciudad no puede estar vacío",
+        });
+        return false;
+    } else {  
+        document.getElementById("inputCity").className="form-control  pt-2 pb-2"; 
+    } 
+    if (!soloLetrasRegex.test(ciudad)) {
+        document.getElementById("inputCity").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("inputCity").setAttribute("role", "alert");
+        Swal.fire({
+            icon: "error",
+            title: "Formato incorrecto",
+            text: "El Nombre solo debe contener letras y espacios",
+        });
+        return false;
+    } else { document.getElementById("inputCity").className="form-control  pt-2 pb-2"; }
     // Validar estado
     if (estadoSeleccionado === "Elige") {
-        document.getElementById("inputState").className="alert alert-danger pt-2 pb-2";
-        document.getElementById("inputState").setAttribute("role", "alert");
+        /* document.getElementById("inputState").className=" alert alert-danger pt-2 pb-2 ";
+        document.getElementById("inputState").setAttribute("role", "alert"); */
         Swal.fire({
             icon: "error",
             title: "Estado no seleccionado",
             text: "Por favor, selecciona un estado válido",
         });
         return false;
-    }
+    } 
 
     // Validar C.P
     if (!codigoPostalRegex.test(codigoPostal)) {
@@ -177,29 +210,29 @@ function validarFormulario() {
             text: "El código postal debe contener 5 dígitos",
         });
         return false;
-    }
-
-    // Validar teléfono
-    if (telefono === "") {
-        document.getElementById("telefono").className="form-control alert alert-danger pt-2 pb-2";
-        document.getElementById("telefono").setAttribute("role", "alert");
+    } else {  document.getElementById("cp").className="form-control pt-2 pb-2"}
+     // Validar contraseña
+    if (password.length < 8) {
+        document.getElementById("password").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("password").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
-            title: "Campo vacío",
-            text: "El campo de Teléfono no puede estar vacío",
+            title: "Contraseña insegura",
+            text: "La contraseña debe tener al menos 8 caracteres",
         });
         return false;
-    } else if (!telefonoRegex.test(telefono)) {
-        document.getElementById("telefono").className="form-control alert alert-danger pt-2 pb-2";
-        document.getElementById("telefono").setAttribute("role", "alert");
+    } else {document.getElementById("password").className="form-control  pt-2 pb-2"}
+    // Valir que sea igual la contraseña
+    if(password!==passPassword){
+        document.getElementById("password").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("password").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
-            title: "Formato incorrecto",
-            text: "El Teléfono debe ser válido (solo números y al menos 10 dígitos)",
+            title: "Contraseña incorrecta",
+            text: "La contraseña debe ser exactamente 'Password'",
         });
         return false;
-    }
-
+    } else {document.getElementById("password").className="form-control pt-2 pb-2";}
     // Validar términos y condiciones
     if (!terminos.checked) {
         Swal.fire({
@@ -253,7 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Si es el primer elemento, agrégalo como predeterminado
         if (index === 0) {
             option.selected = true;
-            option.disabled = true; // Deshabilitar "Elige" por defecto
+            option.disabled = false; // Deshabilitar "Elige" por defecto
         }
 
         inputState.appendChild(option);
