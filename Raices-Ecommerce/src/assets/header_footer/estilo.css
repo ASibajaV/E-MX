@@ -1,0 +1,86 @@
+header{
+    background-color: #FFB300;
+    font-family: 'Cinzel Decorative';
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.navbar-brand1{
+
+    font-family: 'Cinzel Decorative';
+    font-optical-sizing: auto;
+    font-style: normal;
+    }
+
+    .nav-item{
+        font-family: 'faja one';
+        font-size: 20px;
+        font-weight: bolder;
+    }
+    .btn{
+        font-family: 'faja one';
+        font-size: 16px;
+    
+    }
+    /* Para ocultar la sección de agregar productos*/
+    #oculto{
+        display: none;
+        }
+      
+
+    .footer {
+        width: 100%;
+        margin: 0;
+        background: linear-gradient(#73C2FB, #73C2FB, #28A0F6);
+        padding: 50px 0;
+    }
+    
+    .footer-row {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    
+    .footer-links {
+        flex-basis: 25%; /* Mantiene el 25% en pantallas grandes */
+        padding: 0 20px;
+    }
+    
+    .footer-links ul {
+        padding-left: 0;
+        list-style-type: none;
+    }
+    
+    .footer-links ul li {
+        margin: 5px 0;
+    }
+    
+    .footer-links h4 {
+        font-size: 20px;
+        color: black;
+        margin-bottom: 25px;
+        font-weight: 500;
+        border-bottom: 2px solid #73C2FB;
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+    
+    /* Estilos responsivos para dispositivos móviles */
+    @media (max-width: 768px) {
+        .footer-row {
+            flex-direction: column; /* Cambia las columnas a una sola columna */
+            align-items: center;
+            text-align: center; /* Centra el texto para un diseño más limpio */
+        }
+    
+        .footer-links {
+            flex-basis: 100%; /* Ocupa el 100% del ancho en pantallas pequeñas */
+            padding: 10px 0;
+        }
+    
+        .footer-links h4 {
+            text-align: center; /* Centra el título en dispositivos móviles */
+        }
+        
+    }
+    
