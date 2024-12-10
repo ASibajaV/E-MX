@@ -124,6 +124,8 @@ function validarFormulario() {
     }
     // Valir que sea igual la contraseña
     if(password!==passPassword){
+        document.getElementById("password").className="form-control alert alert-danger pt-2 pb-2";
+        document.getElementById("password").setAttribute("role", "alert");
         Swal.fire({
             icon: "error",
             title: "Contraseña incorrecta",
@@ -210,7 +212,7 @@ function validarFormulario() {
 
     // Si todas las validaciones pasan
     generarObjetoUsuario();
-
+    document.getElementById("nombre").className="form-control  pt-2 pb-2";
     Swal.fire({
         icon: "success",
         title: "Formulario válido",

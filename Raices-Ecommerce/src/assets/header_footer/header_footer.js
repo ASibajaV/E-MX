@@ -1,6 +1,24 @@
 //Utilizaremos literales de plantilla
 
-function headerRM(){
+//if (objetoDeBaseDatos.find(objetoDeBaseDatos => objetoDeBaseDatos.user === "admin0" && objetoDeBaseDatos.password === "Pa$$w0rd")); !!!Para que el usuario entre con permisos de comprador y artesano
+/*Ver si se pueden ver diferentes usuarios:
+const artesanoLogged;
+const compradorLogged;
+const adminLogged;*/
+
+
+//localStorage.setItem("login_success", "test");
+
+let usuarioLogged; //Hace que la variable sea false, a menos que exista el objeto "login_success creado en login.js"
+
+if  (localStorage.getItem("login_success")){
+  usuarioLogged = true
+}else{
+  usuarioLogged = false
+}
+
+  //Not logged in
+  function headerRM(){
     return `<header>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
@@ -62,13 +80,86 @@ function headerRM(){
           </form>
         
         </div>
-       </div>
+        </div>
       </section></section>
     </nav>
       
     </header>`
 
-}
+  }
+    
+  //Usuario logged in
+    function usuarioLoggedHeader(){
+      return `<header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <nav class="navbar"> <!-- navbar para el link del logo -->
+            <section> 
+              <a class="navbar-brand" href="/Raices-Ecommerce/src/inicio.html">
+                <img src="/Raices-Ecommerce/src/assets/Images/caco.png" alt="Raíces México" width="100"> <!---->
+              </a> 
+            </section>        
+            <section class="container-flex">
+              <span class="navbar-brand1 mb-0 fs-2">Raíces  México</span>
+            </section>
+          </nav>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <section class="container d-flex flex-column align-items-end h-50 mt-3 " style="
+    margin-right: 0px;">  
+            <ul class="navbar-nav my-2 my-lg-0" style="--bs-scroll-height: 100px;">
+            <!--Permanecera oculto y solo sera visible para los artesanos-->
+            <li class="nav-item me-2">
+              <a class="nav-link" id="oculto" href="#">Agregar Productos</a>
+            </li>
+              <li class="nav-item me-2">
+                <a class="nav-link" href="/Raices-Ecommerce/src/pages/Lista de productos/catalogo.html">Productos</a>
+              </li>
+              <li class="nav-item me-2">
+                <a class="nav-link" href="/Raices-Ecommerce/src/pages/Contactanos/contactanos.html">Contactanos</a>
+              </li>
+              <li class="nav-item me-2">
+                <a class="nav-link" href="/Raices-Ecommerce/src/pages/Sobre Nosotros/nosotros.html">Nosotros</a>
+              </li>
+              <!---->
+              <li>
+
+                <a class="nav-item me-2" id="cerrarSesion">
+                  <button type="button" class="btn btn-light align-items-end mb-2 rounded-pill"style=" width: 126px">Cerrar sesión</button>
+                </a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="
+      padding-top: 0px;">
+                  <button type="button" class="btn btn-dark align-items-end mb-2 rounded-pill" style="
+    width: 126px"> 
+                  Registrate
+                </button>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/Raices-Ecommerce/src/pages/Formulario/Artesano/artesano.html">Soy artesano </a></li>
+                  <li><a class="dropdown-item" href="/Raices-Ecommerce/src/pages/Formulario/Compradores/formulario.html">Soy comprador </a></li>
+                </ul>
+              </li>
+          </ul>
+             
+        <section>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2 rounded-pill" type="search" placeholder="Buscar..." aria-label="Search">
+              <button class="btn btn-light rounded-pill" type="submit">Buscar</button>
+            </form>
+          
+          </div>
+          </div>
+        </section></section>
+      </nav>
+        
+      </header>`
+  }
+
 
 function footerRM(){
     return `<footer class="footer">
@@ -118,5 +209,30 @@ function footerRM(){
     </footer>`
 }
 
-document.getElementById('Header').innerHTML= headerRM();
+if (!usuarioLogged){
+  console.log("not logged")
+  document.getElementById('Header').innerHTML= headerRM();
+}else{
+  console.log("Usuario logged")
+  document.getElementById('Header').innerHTML= usuarioLoggedHeader();  
+}
+
 document.getElementById('Footer').innerHTML= footerRM();
+
+const cerrarSesion = document.getElementById("cerrarSesion");
+
+cerrarSesion.onclick = () => {
+  console.log("click!")
+  
+  localStorage.removeItem("login_success");
+
+    Swal.fire({
+        icon: "success",
+        title: "Cerrando sesión",
+        timer: 2000,
+    });
+
+    setTimeout(() => {
+        window.location.href = "/Raices-Ecommerce/src/inicio.html";
+    }, 2000);
+}
