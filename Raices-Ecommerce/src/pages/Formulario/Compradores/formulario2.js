@@ -119,7 +119,7 @@ function validarFormulario() {
         Swal.fire({
             icon: "error",
             title: "Contraseña insegura",
-            text: "La contraseña debe tener al menos 8 caracteres",
+            text: "La contraseña debe tener al menos 8 carácteres",
         });
         return false;
     }
@@ -161,7 +161,7 @@ function validarFormulario() {
         Swal.fire({
             icon: "error",
             title: "Estado no seleccionado",
-            text: "Por favor, selecciona un estado válido",
+            text: "Por favor, selecciona un Estado válido",
         });
         return false;
     }
