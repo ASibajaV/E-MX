@@ -291,6 +291,7 @@ const cerrarSesion = document.getElementById("cerrarSesion");
 cerrarSesion.onclick = () => {
   console.log("cerrando sesión")
   localStorage.removeItem("login_success");
+  localStorage.removeItem("user_logged");
 
     Swal.fire({
         icon: "success",
