@@ -19,8 +19,9 @@ function mostrarProductos() {
                     <center>
                         <p class="card-text">Precio: $${producto.precio}</p>
                         <p class="card-text">Categoría: ${producto.categoria}</p>
-                        <p class="card-text">Inventario: ${producto.inventario}</p>
-                        <a href="#" class="btn btn-primary">Editar</a>
+                        <p class="card-text"> Estado: ${producto.estado}</p>
+                        <p class="card-text">Inventario: ${producto.inventario}</p>                     
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formEditModal">Editar</button>
                         <a href="#" class="btn btn-danger" onclick="eliminarProducto(${producto.id})">Eliminar</a>
                     </center>
                 </div>
@@ -37,7 +38,7 @@ btnEnviar.addEventListener('click', obtenerDatosFormulario);
 function obtenerDatosFormulario(event) {
     event.preventDefault(); // Evitar que el formulario se envíe por defecto
 
-    // Recuperar los valores de los campos
+    // Recuperar los datos del formulario
     const id = document.getElementById('id').value;
     const imagen = document.getElementById('imagen').value;
     const name = document.getElementById('name').value;
@@ -140,8 +141,6 @@ function eliminarTodosLosProductos() {
     // Actualizar la interfaz de usuario
     mostrarProductos();
 }
-
-
 
 
 
