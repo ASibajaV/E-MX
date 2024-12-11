@@ -1,13 +1,14 @@
-localStorage.setItem("Usuario1", "Contra1"); //Ajustarlo a que sea objeto del json, o agregarlo ahí
+localStorage.setItem("admin", "contra"); //usuario defaul, posiblemente usuario con todos los poderes de artesano y comprador
+const login = document.getElementById("loginButton");
 
-//Validación de campos solo para ver si hay o no halgo escrito, 
+//Validación de campos solo para ver si hay o no algo escrito.
 function validarLogin(usuarioInput, contrasenaInput) { 
     
     if (usuarioInput === "") {
         Swal.fire({
           icon: "error",
           title: "Ingresa tu usuario",
-          timer: 2000, // Tiempo en milisegundos (2 segundos)
+          timer: 2000,
         });
         return false;
       }
@@ -16,48 +17,43 @@ function validarLogin(usuarioInput, contrasenaInput) {
         Swal.fire({
           icon: "error",
           title: "Ingresa tu contraseña",
-          timer: 2000, // Tiempo en milisegundos (2 segundos)
+          timer: 2000,
         });
         return false;
       }
 }
 
-
 //Validación usuario y contraseña correctos
-const login = document.getElementById("loginButton");
-
 login.onclick = (e) => {
 
-    const usuarioInput = document.getElementById("inputNombreUsuario").value;//Funciona tener las constantes dentro del evento, mas que globales.
-    const contrasenaInput = document.getElementById("inputContrasena").value;
-    const validarContrasena = localStorage.getItem(usuarioInput);
+    const emailInput = document.getElementById("inputEmail").value; //Recibe bien los valores
+    const passwordInput = document.getElementById("inputContrasena").value; //Recibe bien los valores
+    
+    const usuarioData = JSON.parse(localStorage.getItem(emailInput));; //Recibe password en localStorage
 
-    validarLogin(usuarioInput, contrasenaInput);
+    validarLogin(emailInput, passwordInput); //Function para validar que hay algo 
 
     e.preventDefault(); //Esto evita un comportamiento de 'default', y se envíe como tal la info.
 
-    /*//EMPIEZA NUEVA VALIDACIóN
-    const emailInput = document.querySelector("inputEmail").value;
-    const passwordInput = document.getElementById("inputContrasena").value;
-
-    const usuarioLogin = JSON.parse(localStorage.getItem("usuario")); //"usuario" es el array del json
-
-    //!!!!checar acceso a elemntos del objeto
-    const validacion = usuario.find(usuario => usuario.email === emailInput && usuario.password === passwordInput);//Es true cuando encuentra email y password son los mismos de un objeto
+    //EMPIEZA NUEVA VALIDACIóN
 
     //Crear validación de usuario admin
-    if (validacion){
-      localStorage.setItem("login_success", JSON.stringify(usuarioLogin)); //se crea un objeto que le dirá al sistema que esta inciada la sesión, y aun podemos recuperar elementos del objeto
-      const.log(usuarioLogin.tipoUsuario); //!!!Solo para revisar el tipo de usuario
+    if (usuarioData.password === passwordInput){
+      console.log("Success!");
+      localStorage.setItem("login_success", (usuarioData.tipoUsuario)); //se crea un objeto que le dirá al sistema que esta inciada la sesión, y aun podemos recuperar elementos del objeto
       Swal.fire({
         icon: "success",
-        title: "Bienvenidx, " + usuarioLogin.name,
+        title: "Bienvenidx, " + usuarioData.nombre,
+        showConfirmButton: false,
         timer: 2000,
         });
       setTimeout(() => {
           window.location.href = "/Raices-Ecommerce/src/inicio.html"; //Para llevar al usuarix a la página de inicio después de un login existoso.
       }, 2000);
-    }else{
+    }else if (emailInput.password != passwordInput && passwordInput != "" && emailInput != ""){ //else if puesto para para que no sobrescriba el swal.fire de validarLogin
+      console.log("Failure!");
+      console.log("email: " +emailInput);
+      console.log("password: " +passwordInput);
       Swal.fire({
         icon: "error",
         title: "Usuario y/o contraseña erroneo",
@@ -65,33 +61,4 @@ login.onclick = (e) => {
       });
     }
     //TERMINA NUEVA VALIDACIóN
-
-    
-    //La siguiente const trae del localStorage el valor de la clave (usuario), mas abajo se ocupa para validar el input de la contraseña, asegurando que sea igual al del local storage.
-    const validarContrasena = localStorage.getItem(usuarioInput);*/
-
-    //Test exitoso.
-    if(validarContrasena === contrasenaInput){
-      localStorage.setItem("login_success", "test"); //!!!posiblemente no se quede, SOLO PARA TEST DE CERRAR SESION
-      Swal.fire({
-        icon: "success",
-        title: "Bienvenidx, " + usuarioInput,
-        timer: 2000,
-        });
-      setTimeout(() => {
-          window.location.href = "/Raices-Ecommerce/src/inicio.html"; //Para llevar al usuarix a la página de inicio después de un login existoso.
-      }, 2000);
-      
-    //Con este else if evita el mensaje "Usuario y/o contraseña erroneo" de abajo si el usuarix no puso usuario ni contraseña
-    }else if((contrasenaInput === "")||(usuarioInput === "")){
-      console.log("NO INPUTS");
-
-    }else{
-      Swal.fire({
-        icon: "error",
-        title: "Usuario y/o contraseña erroneo",
-        timer: 2000,        
-      });
-    }
-
 }
