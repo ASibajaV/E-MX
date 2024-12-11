@@ -1,66 +1,53 @@
-localStorage.setItem("Usuario1", "Contra1");
-localStorage.setItem("alexSibaja", "micontraseña");
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("loginButton").onclick = (e) => {
+      e.preventDefault(); // Evita el comportamiento predeterminado del botón
 
-//Validación de campos solo para ver si hay o no halgo escrito, 
-function validarLogin(usuarioInput, contrasenaInput) { 
-    
-    if (usuarioInput === "") {
-        Swal.fire({
-          icon: "error",
-          title: "Ingresa tu usuario",
-          timer: 2000, // Tiempo en milisegundos (2 segundos)
-        });
-        return false;
+      // Recupera los valores del formulario
+      const emailInput = document.getElementById("inputEmail").value.trim();
+      const passwordInput = document.getElementById("inputContrasena").value.trim();
+
+      if (!emailInput || !passwordInput) {
+          Swal.fire({
+              icon: "error",
+              title: "Por favor, completa todos los campos",
+              timer: 2000,
+          });
+          return;
       }
-      
-      if (contrasenaInput === "") {
-        Swal.fire({
-          icon: "error",
-          title: "Ingresa tu contraseña",
-          timer: 2000, // Tiempo en milisegundos (2 segundos)
-        });
-        return false;
+
+      // Recupera los datos del usuario del localStorage
+      const usuarioData = JSON.parse(localStorage.getItem("cliente"));
+
+      if (!usuarioData) {
+          Swal.fire({
+              icon: "error",
+              title: "Usuario no encontrado",
+              timer: 2000,
+          });
+          return;
       }
-}
 
+      // Valida las credenciales
+      if (usuarioData.email === emailInput && usuarioData.password === passwordInput) {
+          console.log("¡Inicio de sesión exitoso!");
+          localStorage.setItem("login_success", emailInput);
+          Swal.fire({
+              icon: "success",
+              title: `Bienvenidx, ${usuarioData.nombre}`,
+              timer: 2000,
+          });
+          setTimeout(() => {
+              window.location.href = "/Raices-Ecommerce/src/inicio.html";
+          }, 2000);
+      } else {
+          console.log("¡Inicio de sesión fallido!");
+          Swal.fire({
+              icon: "error",
+              title: "Usuario y/o contraseña incorrectos",
+              timer: 2000,
+          });
+      }
+  };
+});
 
-//Validación usuario y contraseña correctos
-const login = document.getElementById("loginButton");
-
-login.onclick = (e) => {
-
-    const usuarioInput = document.getElementById("inputNombreUsuario").value;//Funciona tener las constantes dentro del evento, mas que globales.
-    const contrasenaInput = document.getElementById("inputContrasena").value;
-
-    validarLogin(usuarioInput, contrasenaInput);
-
-    e.preventDefault(); //Esto evita un comportamiento de 'default', y se envíe como tal la info.
-    
-    //La siguiente const trae del localStorage el valor de la clave (usuario), mas abajo se ocupa para validar el input de la contraseña, asegurando que sea igual al del local storage.
-    const validarContrasena = localStorage.getItem(usuarioInput);
-
-    //Test exitoso. !!!!Falta que lleve al usuario a la página de inicio.
-    if(validarContrasena === contrasenaInput){
-      Swal.fire({
-        icon: "success",
-        title: "Bienvenidx, " + usuarioInput,
-        timer: 2500, // Tiempo en milisegundos (2.5 segundos)
-        });
-      setTimeout(() => {
-          window.location.href = "/Raices-Ecommerce/src/inicio.html"; //Para llevar al usuarix a la página de inicio después de un login existoso.
-      }, 3000);
-      
-    //Con este else if evita el mensaje "Usuario y/o contraseña erroneo" de abajo si el usuarix no puso usuario ni contraseña
-    }else if((contrasenaInput === "")||(usuarioInput === "")){
-      console.log("NO INPUTS");
-
-    }else{
-      Swal.fire({
-        icon: "error",
-        title: "Usuario y/o contraseña erroneo",
-        timer: 2000, // Tiempo en milisegundos (2 segundos)
-        
-      });
-    }
-
-}
+console.log(localStorage.getItem("cliente"));
