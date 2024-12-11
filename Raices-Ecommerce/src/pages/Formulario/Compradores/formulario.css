@@ -1,0 +1,70 @@
+/* estilos del formulario */
+/* estilos.css */
+#estructuraGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas grandes */
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+#contenedorImagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Ajusta la altura automáticamente */
+}
+
+.imagen {
+    border-radius: 15px; /* Bordes redondeados */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    max-width: 400px; /* Tamaño máximo para limitar el crecimiento */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Asegura que la imagen se recorte correctamente */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Sombra opcional */
+}
+
+.form-container {
+    font-family: "Fjalla One", sans-serif;
+    text-align: center;
+    background: linear-gradient(to bottom, #fc94b7, #f06292); /* Fondo degradado */
+    padding: 20px;
+    border-radius: 15px; /* Igual que la imagen */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 490px;
+    box-sizing: border-box;
+    min-height: 80vh;   /*Le cambie a 80 */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#checkbox-container {
+    display:flex;
+    align-items: center; /* Alinea verticalmente el texto y el checkbox */
+    gap: 10px; /* Ajusta la separación entre el checkbox y el texto */
+    margin-bottom: 10px; /* Espaciado entre los contenedores */
+}
+
+h1{
+    font-size: 20pt;
+}
+
+.btn-primary{
+    font-size: 15px;
+}
+
+@media (max-width: 768px) {
+    #estructuraGrid {
+        grid-template-columns: 1fr; /* Una columna en dispositivos pequeños */
+    }
+
+    #contenedorImagen {
+        order: -1; /* Mueve la imagen hacia arriba */
+        margin-bottom: 20px;
+    }
+}
+.boton-form{
+    font-size: 15px;
+}
+
