@@ -13,14 +13,14 @@ header{
     }
 
     .nav-item{
-        font-family: 'faja one';
+        font-family: "Roboto", sans-serif;
         font-size: 20px;
         font-weight: bolder;
     }
     .btn{
-        font-family: 'faja one';
+        font-family: "Roboto", sans-serif;
         font-size: 16px;
-    
+        
     }
     /* Para ocultar la sección de agregar productos*/
     #oculto{
