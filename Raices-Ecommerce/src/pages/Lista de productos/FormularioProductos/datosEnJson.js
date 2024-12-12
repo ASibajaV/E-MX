@@ -133,15 +133,12 @@ function eliminarTodosLosProductos() {
 
 /*-----------------------------------------------------------------*/
 const btnUpdate = document.getElementById('Update');
-btnEliminarTodos.addEventListener('click', updateData);
+btnUpdate.style.display = "none"; 
+const btnCancelar = document.getElementById('Cancelar');
+btnCancelar.style.display = "none"; 
+// Función para editar producto
 function updateData(id) {
-    document.getElementById("enviar").style.display = "none";
-    document.getElementById("Update").style.display = "block";
-    
-    let listaDeProductos = JSON.parse(localStorage.getItem('productos')) || [];
-    let producto = listaDeProductos.find(p => p.id === id); // Encuentra el producto por su ID
-    
-    // Rellenar el formulario con los datos del producto
+    const producto = listaDeProductos.find(p => p.id === id);
     document.getElementById('id').value = producto.id;
     document.getElementById('imagen').value = producto.imagen;
     document.getElementById('name').value = producto.name;
@@ -150,40 +147,40 @@ function updateData(id) {
     document.getElementById('categoria').value = producto.categoria;
     document.getElementById('estado').value = producto.estado;
     document.getElementById('descripcion').value = producto.descripcion;
-    
-    document.getElementById('enviar').addEventListener('click', function () {
-        if (validateform() === true) {
-            // Actualiza los datos del producto
-            producto.id = document.getElementById('id').value;
-            producto.imagen = document.getElementById('imagen').value;
-            producto.name = document.getElementById('name').value;
-            producto.precio = document.getElementById('precio').value;
-            producto.inventario = document.getElementById('inventario').value;
-            producto.categoria = document.getElementById('categoria').value;
-            producto.estado = document.getElementById('estado').value;
-            producto.descripcion = document.getElementById('descripcion').value;
 
-            // Guardar los cambios
-            localStorage.setItem('productos', JSON.stringify(listaDeProductos));
-            mostrarProductos();
+    // Ocultar el botón de Enviar y mostrar el de Actualizar
+    document.getElementById("enviar").style.display = "none";
+    btnUpdate.style.display = "block";
+    btnCancelar.style.display = "block";
 
-            // Limpiar el formulario
-            document.getElementById('id').value = "";
-            document.getElementById('imagen').value = "";
-            document.getElementById('name').value = "";
-            document.getElementById('precio').value = "";
-            document.getElementById('inventario').value = "";
-            document.getElementById('categoria').value = "";
-            document.getElementById('estado').value = "";
-            document.getElementById('descripcion').value = "";
-            //
-            document.getElementById("enviar").style.display = "block";
-            document.getElementById("Update").style.display = "none";
-            
-        }
+    // Agregar evento al botón de actualización
+    btnUpdate.addEventListener('click', function () {
+        // Actualizar los datos del producto
+        producto.imagen = document.getElementById('imagen').value;
+        producto.name = document.getElementById('name').value;
+        producto.precio = document.getElementById('precio').value;
+        producto.inventario = document.getElementById('inventario').value;
+        producto.categoria = document.getElementById('categoria').value;
+        producto.estado = document.getElementById('estado').value;
+        producto.descripcion = document.getElementById('descripcion').value;
+
+        // Guardar los cambios
+        localStorage.setItem('productos', JSON.stringify(listaDeProductos));
+        mostrarProductos();
+
+        location.reload();
+       
+        // Ocultar el botón de Actualizar y mostrar el de Enviar nuevamente
+        document.getElementById("enviar").style.display = "block";
+        btnUpdate.style.display = "none";
+    });
+    // Agregar evento al botón de actualización
+    btnCancelar.addEventListener('click', function () {
+        location.reload();
     });
     
 }
+
   
 /*-----------------------------------------------------------------*/
 
