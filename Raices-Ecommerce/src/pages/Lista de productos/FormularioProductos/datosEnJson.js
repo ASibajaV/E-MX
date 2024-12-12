@@ -20,8 +20,8 @@ function mostrarProductos() {
                         <p class="card-text">Precio: $${producto.precio}</p>
                         <p class="card-text">Categoría: ${producto.categoria}</p>
                         <p class="card-text"> Estado: ${producto.estado}</p>
-                        <p class="card-text">Inventario: ${producto.inventario}</p>                     
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formEditModal" onclick="updateData(${producto.id})">Editar</button>
+                        <p class="card-text">Inventario: ${producto.inventario}</p> 
+                        <a href="#" class="btn btn-primary" onclick="updateData(${producto.id})">Editar</a>                    
                         <a href="#" class="btn btn-danger" onclick="eliminarProducto(${producto.id})">Eliminar</a>  
                     </center>
                 </div>
