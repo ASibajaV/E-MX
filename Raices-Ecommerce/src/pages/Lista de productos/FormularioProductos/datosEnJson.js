@@ -128,6 +128,56 @@ function eliminarProducto(id) {
     // Mostrar los productos actualizados
     mostrarProductos();
 }
+/*-----------------------------------------------------------------*/
+// Función para mostrar el modal de edición y prellenar los datos
+function mostrarModal(productId) {
+    
+  
+    const producto = listaDeProductos.find(p => p.id === productId);
+  
+        document.getElementById('productId').value = producto.id;
+        document.getElementById('imagenEdit').value = producto.imagen;
+        document.getElementById('nameEdit').value = producto.name;
+        document.getElementById('precioEdit').value = producto.precio;
+        document.getElementById('inventarioEdit').value = producto.inventario;
+        document.getElementById('categoriaEdit').value = producto.categoria;
+        document.getElementById('estadoEdit').value = producto.estado;
+        document.getElementById('descripcionEdit').value = producto.descripcion;
+  }
+const btnGuardarCambios = document.getElementById('guardarCambios');
+btnGuardarCambios.addEventListener('click', guardarCambios);
+  // Función para guardar los cambios
+  function guardarCambios() {
+    const productId = document.getElementById('productId').value;
+    const imagenEdit = document.getElementById('imagenEdit').value;
+    const nameEdit = document.getElementById('nameEdit').value;
+    const precioEdit = document.getElementById('precioEdit').value;
+    const inventarioEdit = document.getElementById('inventarioEdit').value;
+    const categoriaEdit= document.getElementById('categoriaEdit').value;
+    const estadoEdit = document.getElementById('estadoEdit').value;
+    const descripcionEdit = document.getElementById('descripcionEdit').value;
+    // ... Obtener los nuevos valores de los demás campos
+  
+    const producto = listaDeProductos.find(p => p.id === productId);
+producto.imagen = imagenEdit;
+producto.name = nameEdit;
+producto.precio =precioEdit ;
+producto.inventario = inventarioEdit;
+producto.categoria = categoriaEdit;
+producto.estado = estadoEdit;
+producto.descripcion = descripcionEdit;
+    // ... Actualizar otros campos
+  
+    localStorage.setItem('productos', JSON.stringify(listaDeProductos));
+  
+    const modal = bootstrap.Modal.getInstance(document.getElementById('formEditModal'));
+    modal.hide();
+  
+    mostrarProductos();
+  }
+  
+  
+/*-----------------------------------------------------------------*/
 const btnEliminarTodos = document.getElementById('eliminarTodos');
 btnEliminarTodos.addEventListener('click', eliminarTodosLosProductos);
 // Función para eliminar todos los productos
