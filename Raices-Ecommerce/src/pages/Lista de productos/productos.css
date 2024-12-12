@@ -1,0 +1,110 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/*--------- estilos para el header -----------*/
+
+.navbar-brand1 {
+    font-family: 'Cinzel Decorative';
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.nav-item {
+    font-size: 14px;
+}
+
+.btn {
+    font-size: 12px;
+
+}
+
+img,
+input,
+nav {
+    max-width: 100%;
+}
+
+/* Aqui termina el header */
+
+.productos{
+    width: 100%;   
+    height: 500px;
+}
+
+/*Aquí empieza el footer*/
+
+
+
+
+
+
+.footer {
+    width: 100%;
+    margin: 0;
+    background: linear-gradient(#73C2FB, #73C2FB, #28A0F6);
+    padding: 50px 0;
+}
+
+.footer-row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.footer-links {
+    flex-basis: 25%;
+    /* Mantiene el 25% en pantallas grandes */
+    padding: 0 20px;
+}
+
+.footer-links ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.footer-links ul li {
+    margin: 5px 0;
+}
+
+.footer-links h4 {
+    font-size: 20px;
+    color: black;
+    margin-bottom: 25px;
+    font-weight: 500;
+    border-bottom: 2px solid #73C2FB;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* Estilos responsivos para dispositivos móviles */
+@media (max-width: 768px) {
+    .footer-row {
+        flex-direction: column;
+        /* Cambia las columnas a una sola columna */
+        align-items: center;
+        text-align: center;
+        /* Centra el texto para un diseño más limpio */
+    }
+
+    .footer-links {
+        flex-basis: 100%;
+        /* Ocupa el 100% del ancho en pantallas pequeñas */
+        padding: 10px 0;
+    }
+
+    .footer-links h4 {
+        text-align: center;
+        /* Centra el título en dispositivos móviles */
+    }
+}
+

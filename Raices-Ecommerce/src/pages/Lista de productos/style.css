@@ -10,54 +10,8 @@ body {
     width: 100%;
 }
 
-
+/* Quienes somos*/
 /* category carousel */
-.categorias {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin: 20px 10px;
-}
-
-/* Estilo de cada categoría */
-.categoria {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%; /* Hace el círculo */
-  background-color: #f0f0f0;
-  text-align: center;
-  /*padding: 10px;*/
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.categoria img {
-  width: 150px;  /* Tamaño de la imagen */
-  height: 150px; 
-  object-fit: cover;
-  border-radius: 50%;
-  /*margin-bottom: 10px;*/
-  
- 
-  
-}
-
-.categoria p {
-  font-family: 'Cinzel Decorative';
-  font-weight: bold;
-  margin: 0;
-  font-size: 24px;
-  position: absolute;
-  color: white;
-  font-weight: bolder;
-  
-
-}
 
 /* Estilo general de la sección */
 .categorias {
