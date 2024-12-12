@@ -1,6 +1,5 @@
-
 // funcion para el json
-    function generarObjetoCliente() {
+function generarObjetoCliente() {
     const nombre = document.getElementById("nombre").value.trim();
     const apellido = document.getElementById("apellido").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -21,6 +20,7 @@
         email: email,
         password: password,
         direccion: direccion,
+        ciudad: ciudad,
         telefono: telefono,
         codigoPostal: codigoPostal,
         estado: estadoSeleccionado,
@@ -34,7 +34,7 @@
     console.log(clienteJSON);
 
     // return clienteJSON; // Devolver el JSON por si necesitas usarlo en otro lugar
-    localStorage.setItem("cliente",clienteJSON);
+    localStorage.setItem(email,clienteJSON);
 }
 
 function validarFormulario() {
@@ -288,5 +288,3 @@ document.getElementById("registro").addEventListener("click",(evento)=>{
     evento.preventDefault();
    validarFormulario();
 })
-
-
