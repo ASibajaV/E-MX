@@ -93,6 +93,8 @@
                     <input class="btn btn-primary mt-5" id="enviar" style="width: 300px; color: white; font-size: 20px; font-family: Fjalla One;
                       font-weight: 400;
                       font-style: normal; background-color: #0B5ED7; " type="submit" placeholder="Enviar">
+                      <button id="Update" class="btn btn-danger mt-5" style="display: none; width: 300px;">Actualizar</button>
+                      
                   </div>
                 </div>
               </div>
@@ -112,80 +114,6 @@
         </div>
           </div>
           </main>
-  
-
-<!---->
-
-<!-- Formulario Modal para editar un producto -->
-<div class="modal fade" id="formEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" style="background: linear-gradient(to bottom, #fc94b7, #f06292);">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Producto </h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="#" id="formProduct">
-          <label for="exampleFormControlInput1" class="form-label">Imagen: </label>
-          <input type="text" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="imagenEdit"
-            aria-describedby="emailHelp">
-          <p id="mensajeError2"></p>
-          <!--Nombre del producto -->
-          <label for="exampleFormControlInput1" class="form-label">Nombre del producto: </label>
-          <input type="text" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="nameEdit"
-            aria-describedby="emailHelp">
-          <p id="mensajeError3"></p>
-            <!--Precio del producto -->
-          <label for="exampleFormControlInput1" class="form-label">Precio del producto: </label>
-          <input type="currency" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="precioEdit"
-            aria-describedby="emailHelp">
-          <p id="mensajeError3"></p>
-        <!--Numero de productos a agregar -->
-        <label for="exampleFormControlInput1" class="form-label">Numero de productos a agregar: </label>
-        <input type="number" min="1" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="inventarioEdit"
-          aria-describedby="emailHelp" >
-        <p id="mensajeError3"></p>
-        <!--Categoria del producto -->
-        <label for="exampleFormControlInput1" class="form-label">Categoría: </label>
-        <select id="categoriaEdit" style="width: 300px;">
-            <option value="Miel">Miel</option>
-            <option value="Bolsas">Bolsas</option>
-            <option value="Cafe">Café</option>
-            <option value="Joyería">Joyería</option>
-            <option value="Otros">Otros</option>
-          </select>
-        <!--<input type="text" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="name"
-          aria-describedby="emailHelp" placeholder="Ingresa el nombre del producto">
-        <p id="mensajeError3"></p> -->
-        <br>
-        <label for="exampleFormControlInput1" class="form-label">Estado: </label>
-        <select id="estadoEdit" style="width: 300px;">
-            <option value="Nuevo">Nuevo</option>
-            <option value="Promociones">Promociones</option>
-            <option value="Destacado">destacado</option>
-            <option value="Destacado">cotidiano</option>
-          </select>
-          <br>
-          <!--Campo para la descripción del producto -->
-          <label for="exampleFormControlInput1" class="form-label">Descripción: </label>
-          <textarea class="form-control formu1 " style="height: 110px;" id="descripcionEdit" rows="3"
-            placeholder="Describe el producto."></textarea>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="editarProd">Guardar cambios </button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
 
     <!--Aqui termina el formulario  -->
         

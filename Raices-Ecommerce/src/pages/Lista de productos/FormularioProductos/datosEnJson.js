@@ -21,8 +21,8 @@ function mostrarProductos() {
                         <p class="card-text">Categoría: ${producto.categoria}</p>
                         <p class="card-text"> Estado: ${producto.estado}</p>
                         <p class="card-text">Inventario: ${producto.inventario}</p>                     
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formEditModal">Editar</button>
-                        <a href="#" class="btn btn-danger" onclick="eliminarProducto(${producto.id})">Eliminar</a>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formEditModal" onclick="updateData(${producto.id})">Editar</button>
+                        <a href="#" class="btn btn-danger" onclick="eliminarProducto(${producto.id})">Eliminar</a>  
                     </center>
                 </div>
             </div>
@@ -129,53 +129,58 @@ function eliminarProducto(id) {
     mostrarProductos();
 }
 /*-----------------------------------------------------------------*/
-// Función para mostrar el modal de edición y prellenar los datos
-function mostrarModal(productId) {
+const btnUpdate = document.getElementById('Update');
+btnEliminarTodos.addEventListener('click', updateData);
+function updateData(id) {
+    document.getElementById("enviar").style.display = "none";
+    document.getElementById("Update").style.display = "block";
     
-  
-    const producto = listaDeProductos.find(p => p.id === productId);
-  
-        document.getElementById('productId').value = producto.id;
-        document.getElementById('imagenEdit').value = producto.imagen;
-        document.getElementById('nameEdit').value = producto.name;
-        document.getElementById('precioEdit').value = producto.precio;
-        document.getElementById('inventarioEdit').value = producto.inventario;
-        document.getElementById('categoriaEdit').value = producto.categoria;
-        document.getElementById('estadoEdit').value = producto.estado;
-        document.getElementById('descripcionEdit').value = producto.descripcion;
-  }
-const btnGuardarCambios = document.getElementById('guardarCambios');
-btnGuardarCambios.addEventListener('click', guardarCambios);
-  // Función para guardar los cambios
-  function guardarCambios() {
-    const productId = document.getElementById('productId').value;
-    const imagenEdit = document.getElementById('imagenEdit').value;
-    const nameEdit = document.getElementById('nameEdit').value;
-    const precioEdit = document.getElementById('precioEdit').value;
-    const inventarioEdit = document.getElementById('inventarioEdit').value;
-    const categoriaEdit= document.getElementById('categoriaEdit').value;
-    const estadoEdit = document.getElementById('estadoEdit').value;
-    const descripcionEdit = document.getElementById('descripcionEdit').value;
-    // ... Obtener los nuevos valores de los demás campos
-  
-    const producto = listaDeProductos.find(p => p.id === productId);
-producto.imagen = imagenEdit;
-producto.name = nameEdit;
-producto.precio =precioEdit ;
-producto.inventario = inventarioEdit;
-producto.categoria = categoriaEdit;
-producto.estado = estadoEdit;
-producto.descripcion = descripcionEdit;
-    // ... Actualizar otros campos
-  
-    localStorage.setItem('productos', JSON.stringify(listaDeProductos));
-  
-    const modal = bootstrap.Modal.getInstance(document.getElementById('formEditModal'));
-    modal.hide();
-  
-    mostrarProductos();
-  }
-  
+    let listaDeProductos = JSON.parse(localStorage.getItem('productos')) || [];
+    let producto = listaDeProductos.find(p => p.id === id); // Encuentra el producto por su ID
+    
+    // Rellenar el formulario con los datos del producto
+    document.getElementById('id').value = producto.id;
+    document.getElementById('imagen').value = producto.imagen;
+    document.getElementById('name').value = producto.name;
+    document.getElementById('precio').value = producto.precio;
+    document.getElementById('inventario').value = producto.inventario;
+    document.getElementById('categoria').value = producto.categoria;
+    document.getElementById('estado').value = producto.estado;
+    document.getElementById('descripcion').value = producto.descripcion;
+    
+    document.getElementById('enviar').addEventListener('click', function () {
+        if (validateform() === true) {
+            // Actualiza los datos del producto
+            producto.id = document.getElementById('id').value;
+            producto.imagen = document.getElementById('imagen').value;
+            producto.name = document.getElementById('name').value;
+            producto.precio = document.getElementById('precio').value;
+            producto.inventario = document.getElementById('inventario').value;
+            producto.categoria = document.getElementById('categoria').value;
+            producto.estado = document.getElementById('estado').value;
+            producto.descripcion = document.getElementById('descripcion').value;
+
+            // Guardar los cambios
+            localStorage.setItem('productos', JSON.stringify(listaDeProductos));
+            mostrarProductos();
+
+            // Limpiar el formulario
+            document.getElementById('id').value = "";
+            document.getElementById('imagen').value = "";
+            document.getElementById('name').value = "";
+            document.getElementById('precio').value = "";
+            document.getElementById('inventario').value = "";
+            document.getElementById('categoria').value = "";
+            document.getElementById('estado').value = "";
+            document.getElementById('descripcion').value = "";
+            //
+            document.getElementById("enviar").style.display = "block";
+            document.getElementById("Update").style.display = "none";
+            
+        }
+    });
+    
+}
   
 /*-----------------------------------------------------------------*/
 const btnEliminarTodos = document.getElementById('eliminarTodos');
