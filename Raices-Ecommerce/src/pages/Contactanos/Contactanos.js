@@ -4,7 +4,7 @@ document.getElementById("enviar").addEventListener("click",function(event)
     const correo= document.getElementById("correo").value.trim();
     const telefono=document.getElementById("telefono").value.trim(); 
     const comentario=document.getElementById("comentario").value.trim();
-    const soloLetrasRegex = /^[a-zA-Z\s]+$/;
+    const soloLetrasRegex = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'-]+$/;;
     let condicion1;
     let condicion2;
     let condicion3;
