@@ -29,9 +29,10 @@ function generarObjetoUsuario() {
     const vendedorJSON = JSON.stringify(vendedor, null, 2); // Formateado para mejor visualización (opcional)
     
     // Mostrar el JSON en la consola para pruebas
-   
+    console.log(vendedorJSON);
+
     /* return vendedorJSON; */ // Devolver el JSON por si necesitas usarlo en otro lugar
-    localStorage.setItem("vendedor",vendedorJSON);
+    localStorage.setItem(email,vendedorJSON);
 }
 
 function validarFormulario() {

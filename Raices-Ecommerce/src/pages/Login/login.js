@@ -1,14 +1,26 @@
-localStorage.setItem("Usuario1", "Contra1");
-localStorage.setItem("alexSibaja", "micontraseña");
+const login = document.getElementById("loginButton");
 
-//Validación de campos solo para ver si hay o no halgo escrito, 
+//Valida si un usuario ya esta en sesión. No deberia tener existir la posibilidad, pero previene el error.
+if  (localStorage.getItem("login_success")){
+  Swal.fire({
+    icon: "error",
+    title: "Cierra sesión antes de iniciar sesión de nuevo.",
+    showConfirmButton: false,
+    timer: 2500,
+    });
+    setTimeout(() => {
+      window.location.href = "/Raices-Ecommerce/src/inicio.html"; //Para llevar a la página de inicio después de sugerir que cierre sesión.
+  }, 2400);
+}
+
+//Validación de campos solo para ver si hay o no algo escrito.
 function validarLogin(usuarioInput, contrasenaInput) { 
     
     if (usuarioInput === "") {
         Swal.fire({
           icon: "error",
           title: "Ingresa tu usuario",
-          timer: 2000, // Tiempo en milisegundos (2 segundos)
+          timer: 2000,
         });
         return false;
       }
@@ -17,51 +29,66 @@ function validarLogin(usuarioInput, contrasenaInput) {
         Swal.fire({
           icon: "error",
           title: "Ingresa tu contraseña",
-          timer: 2000, // Tiempo en milisegundos (2 segundos)
+          timer: 2000,
         });
         return false;
       }
 }
 
-
-
 //Validación usuario y contraseña correctos
-const login = document.getElementById("loginButton");
-
 login.onclick = (e) => {
 
-    const usuarioInput = document.getElementById("inputNombreUsuario").value;//Funciona tener las constantes dentro del evento, mas que globales.
-    const contrasenaInput = document.getElementById("inputContrasena").value;
-
-    validarLogin(usuarioInput, contrasenaInput);
-
-    e.preventDefault(); //Esto evita un comportamiento de 'default', y se envíe como tal la info.
+    const emailInput = document.getElementById("inputEmail").value; //Recibe bien los valores
+    const passwordInput = document.getElementById("inputContrasena").value; //Recibe bien los valores
     
-    //La siguiente const trae del localStorage el valor de la clave (usuario), mas abajo se ocupa para validar el input de la contraseña, asegurando que sea igual al del local storage.
-    const validarContrasena = localStorage.getItem(usuarioInput);
-
-    //Test exitoso. !!!!Falta que lleve al usuario a la página de inicio.
-    if(validarContrasena === contrasenaInput){
-      Swal.fire({
-        icon: "success",
-        title: "Bienvenidx, " + usuarioInput,
-        timer: 2500, // Tiempo en milisegundos (2.5 segundos)
-        });
-      setTimeout(() => {
-          window.location.href = "/Raices-Ecommerce/src/inicio.html"; //Para llevar al usuarix a la página de inicio después de un login existoso.
-      }, 3000);
-      
-    //Con este else if evita el mensaje "Usuario y/o contraseña erroneo" de abajo si el usuarix no puso usuario ni contraseña
-    }else if((contrasenaInput === "")||(usuarioInput === "")){
-      console.log("NO INPUTS");
-
-    }else{
+    const usuarioData = JSON.parse(localStorage.getItem(emailInput)); //Recibe password en localStorage
+    if (usuarioData === null){
+      console.log("Failure!");
+      console.log("email: " +emailInput);
+      console.log("password: " +passwordInput);
       Swal.fire({
         icon: "error",
         title: "Usuario y/o contraseña erroneo",
-        timer: 2000, // Tiempo en milisegundos (2 segundos)
-        
+        timer: 2000,    
       });
     }
 
+    validarLogin(emailInput, passwordInput); //Function para validar que hay algo 
+
+    e.preventDefault();
+
+
+    //Crear validación de usuario admin
+    if (usuarioData === null && (passwordInput != "" && emailInput != "")){ //Para que no genere error un null de usuarioData
+      console.log("Failure!");
+      console.log("email: " +emailInput);
+      console.log("password: " +passwordInput);
+      Swal.fire({
+        icon: "error",
+        title: "Usuario y/o contraseña erroneo",
+        timer: 2000,    
+      });
+    }else if (usuarioData.password === passwordInput){
+      console.log("Success!");
+      localStorage.setItem("login_success", usuarioData.tipoUsuario); //se crea un objeto que le dirá al sistema que esta inciada la sesión, y aun podemos recuperar elementos del usuarix
+      localStorage.setItem("user_logged", usuarioData.email); // en caso de que querramos acceder a los datos del usuario que se loggeo, esto se borra al cerrar sesion. E.g.: const miApellido JSON.parse(localStorage.getItem("user_logged")).apellido
+      Swal.fire({
+        icon: "success",
+        title: "Bienvenidx, " + usuarioData.nombre,
+        showConfirmButton: false,
+        timer: 2000,
+        });
+      setTimeout(() => {
+          window.location.href = "/Raices-Ecommerce/src/inicio.html"; //Para llevar al usuarix a la página de inicio después de un login existoso.
+      }, 2000);
+    }else if (emailInput.password != passwordInput || (passwordInput != "" && emailInput != "")){ //else if puesto para para que no sobrescriba el swal.fire de validarLogin
+      console.log("Failure!");
+      console.log("email: " +emailInput);
+      console.log("password: " +passwordInput);
+      Swal.fire({
+        icon: "error",
+        title: "Usuario y/o contraseña erroneo",
+        timer: 2000,    
+      });
+    }
 }
