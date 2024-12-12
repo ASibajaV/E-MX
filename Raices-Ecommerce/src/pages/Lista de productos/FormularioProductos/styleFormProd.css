@@ -1,0 +1,48 @@
+/* Estilos generales */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+.card{
+  border-radius: 15px;
+  background: linear-gradient(135deg, #F06292, #BA68C8);
+  max-width: 300px;
+  align-items: center;
+}
+.card-img-top {
+  width: 200px;
+  border-radius: 15px;
+  height: 200px;
+}
+
+.card-body{
+          
+  color: #fff;
+  max-width: 300px;
+  display: inline;
+  max-height: 550px;
+  
+}
+.productos-container{
+  display:flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.cartas_productos{
+  Margin: 30px;
+
+}
+/*-----------------------------------------------------------------------------*/
+
+
+
+
+
+
