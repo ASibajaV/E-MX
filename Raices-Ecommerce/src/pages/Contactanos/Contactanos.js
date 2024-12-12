@@ -4,68 +4,47 @@ document.getElementById("enviar").addEventListener("click",function(event)
     const correo= document.getElementById("correo").value.trim();
     const telefono=document.getElementById("telefono").value.trim(); 
     const comentario=document.getElementById("comentario").value.trim();
-    const soloLetrasRegex = /^[a-zA-Z\s]+$/;
-    let condicion1;
-    let condicion2;
-    let condicion3;
-    let condicion4;
-    let condicion5;
+    if(!name||!correo||!telefono||!comentario){
     if(!name&&!correo&&!telefono&&!comentario){
       document.getElementById("mensajeError").style.visibility="visible";
-       condicion1=0;
        Swal.fire({
         icon: "error",
         title: "Oops..",
         text: "Llena todos los campos",
-      }); 
-    } else {document.getElementById("mensajeError").style.visibility="hidden" 
-      condicion1=1;
-    } 
-    if(name==""||!soloLetrasRegex.test(name)){
+      });
+    } else {document.getElementById("mensajeError").style.visibility="hidden"} 
+    if(name==""||name.match(/[0-9]/g)){
       document.getElementById("mensajeError1").style.visibility="visible";
        Swal.fire({
         icon: "error",
         title: "Oops..",
         text: "Ingrese un nombre valido",
       });
-      condicion2=0;
-    } else{document.getElementById("mensajeError1").style.visibility="hidden"
-      condicion2=1;
-    }
-    if(!correo.includes("@")|| correo==""){
+    } else{document.getElementById("mensajeError1").style.visibility="hidden"}
+    if(!correo.includes("@")){
       document.getElementById("mensajeError2").style.visibility="visible";
        Swal.fire({
         icon: "error",
         title: "Oops..",
         text: "Ingrese un correo valido",
-      }); 
-       condicion3=0;
-    }else{document.getElementById("mensajeError2").style.visibility="hidden" 
-      condicion3=1;
-    } 
-     if(telefono.length!=10 || telefono.match(/[a-z]/g)||telefono==""){
+      });
+    }else{document.getElementById("mensajeError2").style.visibility="hidden"} 
+     if(telefono.length!=10 || telefono.match(/[a-z]/g)){
       document.getElementById("mensajeError3").style.visibility="visible";
        Swal.fire({
         icon: "error",
         title: "Oops..",
         text: "Ingrese un telefono valido",
-      });  
-      condicion4=0;
-    } else{document.getElementById("mensajeError3").style.visibility="hidden" 
-      condicion4=1;
-    } 
+      });
+    } else{document.getElementById("mensajeError3").style.visibility="hidden"} 
     if(comentario==""){
       document.getElementById("mensajeError").style.visibility="visible";
         Swal.fire({
          icon: "error",
          title: "Oops..",
          text: "Llena todos los campos",
-       }); 
-      condicion5=0;} 
-       else  {document.getElementById("mensajeError").style.visibility="hidden"
-        condicion5=1;
-       }
-       if(condicion1===1 && condicion2===1 && condicion3===1 && condicion4===1 && condicion5===1){
+       });} else {document.getElementById("mensajeError").style.visibility="hidden"};
+      } else if(name&&correo&&telefono&&comentario) {
         sendEmail();
         document.getElementById("mensajeError").style.visibility="hidden"
         document.getElementById("mensajeError1").style.visibility="hidden"
@@ -73,7 +52,7 @@ document.getElementById("enviar").addEventListener("click",function(event)
         document.getElementById("mensajeError3").style.visibility="hidden"
         setTimeout(()=>{
           document.getElementById("form").reset();
-      },2000)
+      },1000)
     }
 });
 function sendEmail(){
@@ -96,7 +75,7 @@ function sendEmail(){
         icon: "success",
         title: "Tu mensaje ha sido enviado",
         showConfirmButton: false,
-        timer: 2000
+        timer: 1000
       });
     }
   } 
