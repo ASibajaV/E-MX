@@ -24,6 +24,7 @@ function validarLogin(usuarioInput, contrasenaInput) {
 }
 
 
+
 //Validación usuario y contraseña correctos
 const login = document.getElementById("loginButton");
 
