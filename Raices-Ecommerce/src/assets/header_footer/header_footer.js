@@ -29,7 +29,7 @@ function headerRM(){
               <a class="nav-link" href="/Raices-Ecommerce/src/pages/Lista de productos/catalogo.html">Productos</a>
             </li>
             <li class="nav-item me-2">
-              <a class="nav-link" href="/Raices-Ecommerce/src/pages/Contactanos/contactanos.html">Contactanos</a>
+              <a class="nav-link" href="/Raices-Ecommerce/src/pages/Contactanos/contactanos.html">Contáctanos</a>
             </li>
             <li class="nav-item me-2">
               <a class="nav-link" href="/Raices-Ecommerce/src/pages/Sobre Nosotros/nosotros.html">Nosotros</a>
@@ -57,7 +57,7 @@ function headerRM(){
             
       <section >
           <form class="d-flex" role="search">
-            <input class="form-control me-2 rounded-pill" type="search" placeholder="Buscar..." aria-label="Search">
+            <input class="form-control me-2 rounded-pill" id="input" type="search" placeholder="Buscar..." aria-label="Search">
             <button class="btn btn-light rounded-pill" type="submit">Buscar</button>
           </form>
         

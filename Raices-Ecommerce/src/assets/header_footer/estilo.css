@@ -17,6 +17,10 @@ header{
         font-size: 20px;
         font-weight: bolder;
     }
+#input{
+    font-family: "Roboto", sans-serif;
+}
+
     .btn{
         font-family: "Roboto", sans-serif;
         font-size: 16px;
