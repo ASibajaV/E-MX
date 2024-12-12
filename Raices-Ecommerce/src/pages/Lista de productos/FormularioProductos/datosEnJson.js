@@ -117,17 +117,20 @@ function obtenerDatosFormulario(event) {
     mostrarProductos();
 }}
 
-// Función para eliminar un producto de la lista
-function eliminarProducto(id) {
-    // Filtrar el producto que no se desea eliminar
-    listaDeProductos = listaDeProductos.filter(producto => producto.id !== id);
-
-    // Actualizar el localStorage
-    localStorage.setItem('productos', JSON.stringify(listaDeProductos));
-
-    // Mostrar los productos actualizados
+const btnEliminarTodos = document.getElementById('eliminarTodos');
+btnEliminarTodos.addEventListener('click', eliminarTodosLosProductos);
+// Función para eliminar todos los productos
+function eliminarTodosLosProductos() {
+    // Limpiar el localStorage
+    localStorage.removeItem('productos');
+    
+    // Vaciar la lista de productos en el array
+    listaDeProductos = [];
+    
+    // Actualizar la interfaz de usuario
     mostrarProductos();
 }
+
 /*-----------------------------------------------------------------*/
 const btnUpdate = document.getElementById('Update');
 btnEliminarTodos.addEventListener('click', updateData);
@@ -183,21 +186,19 @@ function updateData(id) {
 }
   
 /*-----------------------------------------------------------------*/
-const btnEliminarTodos = document.getElementById('eliminarTodos');
-btnEliminarTodos.addEventListener('click', eliminarTodosLosProductos);
-// Función para eliminar todos los productos
-function eliminarTodosLosProductos() {
-    // Limpiar el localStorage
-    localStorage.removeItem('productos');
-    
-    // Vaciar la lista de productos en el array
-    listaDeProductos = [];
-    
-    // Actualizar la interfaz de usuario
+
+
+// Función para eliminar un producto de la lista
+function eliminarProducto(id) {
+    // Filtrar el producto que no se desea eliminar
+    listaDeProductos = listaDeProductos.filter(producto => producto.id !== id);
+
+    // Actualizar el localStorage
+    localStorage.setItem('productos', JSON.stringify(listaDeProductos));
+
+    // Mostrar los productos actualizados
     mostrarProductos();
 }
-
-
 
 
 // Mostrar los productos cuando se carga la página
