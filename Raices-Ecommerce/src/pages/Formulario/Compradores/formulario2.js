@@ -1,5 +1,5 @@
 // funcion para el json
-    function generarObjetoCliente() {
+function generarObjetoCliente() {
     const nombre = document.getElementById("nombre").value.trim();
     const apellido = document.getElementById("apellido").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -49,7 +49,7 @@ function validarFormulario() {
     const estadoSeleccionado = document.getElementById("inputState").value;
     const codigoPostal = document.getElementById("cp").value.trim();
     const terminos = document.getElementById("gridCheck");
-    const soloLetrasRegex = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'-]+$/;
+    const soloLetrasRegex = /^[a-zA-Z\s]+$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const direccionRegex = /[0-9]/;
     const telefonoRegex = /^[0-9]{10,}$/;
