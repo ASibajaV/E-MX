@@ -20,9 +20,9 @@ function mostrarProductos() {
                         <p class="card-text">Precio: $${producto.precio}</p>
                         <p class="card-text">Categoría: ${producto.categoria}</p>
                         <p class="card-text"> Estado: ${producto.estado}</p>
-                        <p class="card-text">Inventario: ${producto.inventario}</p>                     
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formEditModal">Editar</button>
-                        <a href="#" class="btn btn-danger" onclick="eliminarProducto(${producto.id})">Eliminar</a>
+                        <p class="card-text">Inventario: ${producto.inventario}</p> 
+                        <a href="#" class="btn btn-primary" onclick="updateData(${producto.id})">Editar</a>                    
+                        <a href="#" class="btn btn-danger" onclick="eliminarProducto(${producto.id})">Eliminar</a>  
                     </center>
                 </div>
             </div>
@@ -117,67 +117,6 @@ function obtenerDatosFormulario(event) {
     mostrarProductos();
 }}
 
-// Función para eliminar un producto de la lista
-function eliminarProducto(id) {
-    // Filtrar el producto que no se desea eliminar
-    listaDeProductos = listaDeProductos.filter(producto => producto.id !== id);
-
-    // Actualizar el localStorage
-    localStorage.setItem('productos', JSON.stringify(listaDeProductos));
-
-    // Mostrar los productos actualizados
-    mostrarProductos();
-}
-/*-----------------------------------------------------------------*/
-// Función para mostrar el modal de edición y prellenar los datos
-function mostrarModal(productId) {
-    
-  
-    const producto = listaDeProductos.find(p => p.id === productId);
-  
-        document.getElementById('productId').value = producto.id;
-        document.getElementById('imagenEdit').value = producto.imagen;
-        document.getElementById('nameEdit').value = producto.name;
-        document.getElementById('precioEdit').value = producto.precio;
-        document.getElementById('inventarioEdit').value = producto.inventario;
-        document.getElementById('categoriaEdit').value = producto.categoria;
-        document.getElementById('estadoEdit').value = producto.estado;
-        document.getElementById('descripcionEdit').value = producto.descripcion;
-  }
-const btnGuardarCambios = document.getElementById('guardarCambios');
-btnGuardarCambios.addEventListener('click', guardarCambios);
-  // Función para guardar los cambios
-  function guardarCambios() {
-    const productId = document.getElementById('productId').value;
-    const imagenEdit = document.getElementById('imagenEdit').value;
-    const nameEdit = document.getElementById('nameEdit').value;
-    const precioEdit = document.getElementById('precioEdit').value;
-    const inventarioEdit = document.getElementById('inventarioEdit').value;
-    const categoriaEdit= document.getElementById('categoriaEdit').value;
-    const estadoEdit = document.getElementById('estadoEdit').value;
-    const descripcionEdit = document.getElementById('descripcionEdit').value;
-    // ... Obtener los nuevos valores de los demás campos
-  
-    const producto = listaDeProductos.find(p => p.id === productId);
-producto.imagen = imagenEdit;
-producto.name = nameEdit;
-producto.precio =precioEdit ;
-producto.inventario = inventarioEdit;
-producto.categoria = categoriaEdit;
-producto.estado = estadoEdit;
-producto.descripcion = descripcionEdit;
-    // ... Actualizar otros campos
-  
-    localStorage.setItem('productos', JSON.stringify(listaDeProductos));
-  
-    const modal = bootstrap.Modal.getInstance(document.getElementById('formEditModal'));
-    modal.hide();
-  
-    mostrarProductos();
-  }
-  
-  
-/*-----------------------------------------------------------------*/
 const btnEliminarTodos = document.getElementById('eliminarTodos');
 btnEliminarTodos.addEventListener('click', eliminarTodosLosProductos);
 // Función para eliminar todos los productos
@@ -192,7 +131,71 @@ function eliminarTodosLosProductos() {
     mostrarProductos();
 }
 
+/*-----------------------------------------------------------------*/
+const btnUpdate = document.getElementById('Update');
+btnUpdate.style.display = "none"; 
+const btnCancelar = document.getElementById('Cancelar');
+btnCancelar.style.display = "none"; 
+// Función para editar producto
+function updateData(id) {
+    const producto = listaDeProductos.find(p => p.id === id);
+    document.getElementById('id').value = producto.id;
+    document.getElementById('imagen').value = producto.imagen;
+    document.getElementById('name').value = producto.name;
+    document.getElementById('precio').value = producto.precio;
+    document.getElementById('inventario').value = producto.inventario;
+    document.getElementById('categoria').value = producto.categoria;
+    document.getElementById('estado').value = producto.estado;
+    document.getElementById('descripcion').value = producto.descripcion;
 
+    // Ocultar el botón de Enviar y mostrar el de Actualizar
+    document.getElementById("enviar").style.display = "none";
+    btnUpdate.style.display = "block";
+    btnCancelar.style.display = "block";
+
+    // Agregar evento al botón de actualización
+    btnUpdate.addEventListener('click', function () {
+        // Actualizar los datos del producto
+        producto.imagen = document.getElementById('imagen').value;
+        producto.name = document.getElementById('name').value;
+        producto.precio = document.getElementById('precio').value;
+        producto.inventario = document.getElementById('inventario').value;
+        producto.categoria = document.getElementById('categoria').value;
+        producto.estado = document.getElementById('estado').value;
+        producto.descripcion = document.getElementById('descripcion').value;
+
+        // Guardar los cambios
+        localStorage.setItem('productos', JSON.stringify(listaDeProductos));
+        mostrarProductos();
+
+        location.reload();
+       
+        // Ocultar el botón de Actualizar y mostrar el de Enviar nuevamente
+        document.getElementById("enviar").style.display = "block";
+        btnUpdate.style.display = "none";
+    });
+    // Agregar evento al botón de actualización
+    btnCancelar.addEventListener('click', function () {
+        location.reload();
+    });
+    
+}
+
+  
+/*-----------------------------------------------------------------*/
+
+
+// Función para eliminar un producto de la lista
+function eliminarProducto(id) {
+    // Filtrar el producto que no se desea eliminar
+    listaDeProductos = listaDeProductos.filter(producto => producto.id !== id);
+
+    // Actualizar el localStorage
+    localStorage.setItem('productos', JSON.stringify(listaDeProductos));
+
+    // Mostrar los productos actualizados
+    mostrarProductos();
+}
 
 
 // Mostrar los productos cuando se carga la página
