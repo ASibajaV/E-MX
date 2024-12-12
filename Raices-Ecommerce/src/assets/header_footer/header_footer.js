@@ -100,7 +100,7 @@ if  (localStorage.getItem("login_success")){
             <ul class="navbar-nav my-2 my-lg-0" style="--bs-scroll-height: 100px;">
             <!--Permanecera oculto y solo sera visible para los artesanos-->
             <li class="nav-item me-2">
-              <a class="nav-link" href="#">Carrito compras</a>
+              <a class="nav-link" href="/Raices-Ecommerce/src/pages/Lista de productos/catalogo.html">Carrito compras</a>
             </li>
               <li class="nav-item me-2">
                 <a class="nav-link" href="/Raices-Ecommerce/src/pages/Lista de productos/catalogo.html">Productos</a>
@@ -172,7 +172,7 @@ if  (localStorage.getItem("login_success")){
           <ul class="navbar-nav my-2 my-lg-0" style="--bs-scroll-height: 100px;">
           <!--Permanecera oculto y solo sera visible para los artesanos-->
           <li class="nav-item me-2">
-            <a class="nav-link" href="#">Agregar Productos</a>
+            <a class="nav-link" href="/Raices-Ecommerce/src/pages/Lista de productos/FormularioProductos/formularioProduct.html">Agregar Productos</a>
           </li>
             <li class="nav-item me-2">
               <a class="nav-link" href="/Raices-Ecommerce/src/pages/Lista de productos/catalogo.html">Productos</a>
