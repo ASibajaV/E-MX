@@ -1,0 +1,397 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Quienes somos*/
+.quienSomos {
+    background-color: #f2f2f2;
+    align-items: center;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(226, 0, 116, 0.3);
+    /* Sombra suave donde 0 sin deplazamiento horizontal,  sombra dezplazada hacia abajo, 12 desenfoque para suavizar */
+}
+
+.quienSomos h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #f61ed2;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+
+}
+
+.quienSomos p {
+
+    font-family: 'faja one';
+    font-size: 20px;
+    color: #595c5e;
+    text-align: justify;
+    line-height: 2;
+    max-width: 700px;
+    margin: 0 auto 1rem;
+    padding: 0 1rem;
+}
+
+/* Estilos adicionales para el diseño responsivo */
+@media (max-width: 768px) {
+    .quienSomos h2 {
+        font-size: 1.5em;
+        font-family: 'Cinzel Decorative';
+        /* Ajuste del tamaño en dispositivos pequeños */
+    }
+
+    .quienSomos p {
+        font-size: 1em;
+        /* Tamaño de texto adecuado para móviles */
+    }
+}
+
+/* Estilos generales para la sección valores & misiones */
+.misionVision {
+    margin: 30px;
+}
+
+.cont {
+
+    padding: 25px;
+
+}
+
+.info {
+    text-align: center;
+    background-color: #FFC1D6;
+    border: none;
+    border-radius: 30px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.info:hover,
+.info.active {
+    transform: scale(1.1);
+    background-color: #fce3f3;
+}
+
+.contenido {
+    padding: 10px;
+}
+
+.contenido h5 {
+    font-size: 25px;
+    font-family: 'Cinzel Decorative';
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #73C2FB;
+    padding-top: 30px;
+}
+
+.contenido p {
+    font-size: 19px;
+    font-family: 'fajaone';
+    line-height: 1.;
+    text-align: justify;
+    color: #3b3737;
+    padding: 0 10px 10px 10px;
+
+}
+
+/* Aqui comienza secciond de valores */
+
+.valores {
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fce3f4;
+}
+
+.contenedorValores {
+    display: flex;
+    height: 40px;
+    font-size: 30px;
+    line-height: 40px;
+    overflow: hidden;
+}
+
+.contenedorValores h2 {
+    color: #73C2FB;
+    font-family: 'roboto';
+    font-size: 35px;
+}
+
+.contenedorValores ul {
+    margin: 0;
+    padding-left: 10px;
+}
+
+.contenedorValores ul {
+    list-style: none;
+    animation: movimiento 10s infinite;
+}
+
+.contenedorValores ul li {
+    background-image: linear-gradient(90deg, #73C2FB, #f61ed2);
+    font-family: 'faja one';
+    font-size: 35px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* * Define la propiedad estándar sin prefijo para los navegadores modernos que no necesitan el prefijo.*/
+    -webkit-text-fill-color: transparent;
+    padding: 0 5px;
+    letter-spacing: 1px;
+}
+
+/*Animación de p de valores*/
+
+@keyframes movimiento {
+    0% {
+        margin-top: 0;
+    }
+
+    /*20% {
+        margin-top: 0;
+    }*/
+
+    25% {
+        margin-top: -40px;
+    }
+
+    50% {
+        margin-top: -40px;
+    }
+
+    55% {
+        margin-top: -80px;
+    }
+
+    80% {
+        margin-top: -80px;
+    }
+
+    85% {
+        margin-top: -40px;
+    }
+
+    95% {
+        margin-top: -40px;
+    }
+
+    100% {
+        margin-top: 0%;
+    }
+}
+
+/*Aqui termina sesion de valores/
+/* imagenes de valores*/
+.valoresImg .col-4 {
+    padding: 0;
+}
+
+/* ----------------------------------------------------------------------------*/
+/* Presentación de integrantes */
+.titleTeam {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fce3f4;
+
+}
+
+.tituloTeam {
+
+    background-image: linear-gradient(90deg, #73C2FB, #f61ed2);
+    font-family: 'faja one';
+    font-size: 35px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* * Define la propiedad estándar sin prefijo para los navegadores modernos que no necesitan el prefijo.*/
+    -webkit-text-fill-color: transparent;
+    padding: 0 5px;
+    letter-spacing: 1px;
+}
+
+/* Estilos generales */
+.cardIntegrantes {
+
+    display: flex;
+    flex-wrap: wrap;
+    /* Acomoda las cartas, acomodandolas en las filas siguientes para ocupar el espacio del navegador. */
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    /* Espaciado entre las cartas */
+    margin: 40px;
+}
+
+.cardIntegrantes .card-title a {
+    text-decoration: none;
+}
+
+.cardIntegrantes h3 {
+    font-family: Cinzel;
+    font-size: 20px;
+}
+
+.card-content h5 {
+    font-family: Cinzel;
+    font-size: 15px;
+}
+
+/* --------------------------------------------------------------------*/
+.card {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    margin: 10px;
+
+}
+
+.card .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+
+}
+
+.card .front {
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+    background: #FFB300;
+}
+
+.card .front img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #FFB300;
+}
+
+.card .back {
+    transform: perspective(600px) rotateY(180deg);
+    background: #FFB300;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.card:hover .front {
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover .back {
+    transform: perspective(600px) rotateY(360deg);
+}
+
+/*---------------------------------------------------------------------*/
+
+.card-content {
+    flex-grow: 1;
+    /* Hace que el contenido ocupe el espacio restante disponible */
+    overflow: hidden;
+    /* Previene que el texto se desborde fuera del contenedor */
+    width: 220px;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin: 10px;
+    text-align: center;
+    width: 200px;
+    font-family: 'Cinzel';
+}
+
+
+.card-text {
+    /*Especificaciones pra el texto de nuestra carta */
+    font-family: 'faja one';
+    font-size: 0.9rem;
+    display: flex;
+    text-align: justify;
+    background: #fce3f4;
+    height: 200px;
+    width: 210px;
+    border: 2px solid #E91E63;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+
+}
+
+.text-body-secondary {
+    /*Especificaciones para scrum y product owner */
+    list-style-type: none;
+    font-family: 'Roboto';
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.8rem;
+    color: #636262;
+    padding-left: 0;
+    background: #FFB300;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* Responsividad */
+@media (min-width: 600px) {
+    .card {
+        flex-direction: row;
+        /* En pantallas grandes, la tarjeta se organiza en fila */
+    }
+
+    .card-image {
+        flex: 1 1 150px;
+        /* La imagen ocupa un espacio mínimo pero flexible */
+    }
+
+    .card-content {
+        flex: 2 1 300px;
+        /* El contenido ocupa más espacio, pero es flexible */
+    }
+}
+
+@media (max-width: 599px) {
+    .card {
+        flex-direction: column;
+        /* En pantallas pequeñas, la tarjeta se organiza en columna */
+        max-width: 100%;
+    }
+
+    .card-image img {
+        width: 100%;
+        /* La imagen ocupa todo el ancho */
+    }
+}
+
+/*-----------------------------------------------------------------------------*/
