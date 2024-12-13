@@ -1,0 +1,78 @@
+/* Estilos generales */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+.card{
+  border-radius: 15px;
+  background: linear-gradient(135deg, #F06292, #BA68C8);
+  max-width: 300px;
+  align-items: center;
+}
+.card-img-top {
+  width: 200px;
+  border-radius: 15px;
+  height: 200px;
+}
+
+.card-body{
+          
+  color: #fff;
+  max-width: 300px;
+  display: inline;
+  max-height: 550px;
+  
+}
+.productos-container{
+  display:flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.cartas_productos{
+  Margin: 30px;
+
+}
+/*-----------------------------------------------------------------------------*/
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Estilos para cuando la pantalla sea pequeña (por ejemplo, menos de 768px) */
+@media (max-width: 768px) {
+  .main-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  /* Asegurarse de que el formulario y la lista de productos tengan el mismo ancho */
+  .formulario_Productos .container-fluid {
+      max-width: 100%;
+      padding: 0;
+  }
+
+  .productos-container {
+      margin-top: 20px; /* Espacio entre el formulario y la lista de productos */
+  }
+
+  /* Opcional: Asegurarse de que los botones se alineen correctamente */
+  #enviar, #Update, #Cancelar {
+      width: 100%;
+      max-width: 300px; /* Para asegurarse de que los botones no sean demasiado anchos */
+  }
+}
+
+
+
+
+
+
