@@ -24,7 +24,7 @@ body {
 
 .quienSomos h2 {
     font-family: 'Cinzel Decorative', serif;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 700;
     color: #f61ed2;
     text-transform: uppercase;
@@ -90,7 +90,7 @@ body {
 }
 
 .contenido h5 {
-    font-size: 25px;
+    font-size: 30px;
     font-family: 'Cinzel Decorative';
     font-weight: 700;
     text-transform: uppercase;
@@ -221,15 +221,14 @@ body {
 
 .tituloTeam {
 
-    background-image: linear-gradient(90deg, #73C2FB, #f61ed2);
     font-family: 'faja one';
-    font-size: 35px;
-    -webkit-background-clip: text;
-    background-clip: text;
-    /* * Define la propiedad estándar sin prefijo para los navegadores modernos que no necesitan el prefijo.*/
-    -webkit-text-fill-color: transparent;
-    padding: 0 5px;
-    letter-spacing: 1px;
+    font-size: 80px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #E91E63;
+
 }
 
 /* Estilos generales */
