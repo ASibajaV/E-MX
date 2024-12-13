@@ -1,33 +1,33 @@
 [
     {
-    "id": 1, "imagen": "https://raw.githubusercontent.com/Xamagora/Catalogo/refs/heads/main/Catalogo%20de%20la%20pagina/Bolsas/bolsa.webp", "name":"Bolsa Henequen", "precio":"1500.00","descripcion":"Originaria de Yucatán" ,"inventario": 2, "categoría": "Bolsa"
+    "id": 1, "imagen": "bolsa.png", "name":"Bolsa Henequen", "precio":"1500.00","descripcion":"Originaria de Yucatán" ,"inventario": 2, "categoría": "Bolsa"
     }, 
     {
-    "id": 2, "imagen": "https://raw.githubusercontent.com/Xamagora/Catalogo/refs/heads/main/Catalogo%20de%20la%20pagina/Bolsas/bolsa1.webp", "name":"Bolsa Mostaza", "precio":"950.00", "descripcion":"Originaria de Yucatán", "inventario": 5, "categoría": "Bolsa"
+    "id": 2, "imagen": "bolsa1.png", "name":"Bolsa Mostaza", "precio":"950.00", "descripcion":"Originaria de Yucatán", "inventario": 5, "categoría": "Bolsa"
     }, 
     {
-    "id": 3, "imagen": "https://raw.githubusercontent.com/Xamagora/Catalogo/refs/heads/main/Catalogo%20de%20la%20pagina/Caf%C3%A9/cafecien.webp", "name":"Café Orgánico", "precio":"850.00", "descripcion":"Originario de Chiapas", "inventario": 4, "categoría": "Cafe"
+    "id": 3, "imagen": "cafecien.png", "name":"Café Orgánico", "precio":"850.00", "descripcion":"Originario de Chiapas", "inventario": 4, "categoría": "Cafe"
     }, 
     {
-    "id": 4, "imagen": "https://raw.githubusercontent.com/Xamagora/Catalogo/refs/heads/main/Catalogo%20de%20la%20pagina/Joyer%C3%ADa/plata.webp", "name":"Jaguar de Plata", "precio":"1650.00", "descripcion":"Originaria de Taxco", "inventario": 8, "categoría": "Joyeria"
+    "id": 4, "imagen": "plata.png", "name":"Jaguar de Plata", "precio":"1650.00", "descripcion":"Originaria de Taxco", "inventario": 8, "categoría": "Joyeria"
     }, 
     {
-    "id": 5, "imagen": "https://raw.githubusercontent.com/Xamagora/Catalogo/refs/heads/main/Catalogo%20de%20la%20pagina/Miel/miel1.webp", "name":"Miel de Manglar", "precio":"1150.00", "descripcion":"Originaria de Campeche", "inventario": 5, "categoría": "Miel"
+    "id": 5, "imagen": "miel1.png", "name":"Miel de Manglar", "precio":"1150.00", "descripcion":"Originaria de Campeche", "inventario": 5, "categoría": "Miel"
     }, 
     {
-    "id": 6, "imagen": "https://raw.githubusercontent.com/Xamagora/Catalogo/refs/heads/main/Catalogo%20de%20la%20pagina/Caf%C3%A9/cafecin.webp", "name":"Café de Altura", "precio":"999.00", "descripcion":"Originario de Oaxaca", "inventario": 6, "categoría": "Cafe"
+    "id": 6, "imagen": "cafecin.png", "name":"Café de Altura", "precio":"999.00", "descripcion":"Originario de Oaxaca", "inventario": 6, "categoría": "Cafe"
     },
     {
-    "id": 7, "imagen": "https://raw.githubusercontent.com/Xamagora/Catalogo/refs/heads/main/Catalogo%20de%20la%20pagina/Miel/miel.webp", "name":"Paquete de Miel", "precio":"1700.00", "descripcion":"Originaria de Yucatán", "inventario": 5, "categoría": "Miel"
+    "id": 7, "imagen": "miel.png", "name":"Paquete de Miel", "precio":"1700.00", "descripcion":"Originaria de Yucatán", "inventario": 5, "categoría": "Miel"
     },
     {
-    "id": 8, "imagen": "https://raw.githubusercontent.com/Xamagora/Catalogo/refs/heads/main/Catalogo%20de%20la%20pagina/Joyer%C3%ADa/sol.webp", "name":"Sol de Bronce", "precio":"2100.00", "descripcion":"Originario de Guerrero", "inventario": 9, "categoría": "Joyeria"
+    "id": 8, "imagen": "sol.png", "name":"Sol de Bronce", "precio":"2100.00", "descripcion":"Originario de Guerrero", "inventario": 9, "categoría": "Joyeria"
     },
     {
-    "id": 9, "imagen": "https://raw.githubusercontent.com/Xamagora/Catalogo/refs/heads/main/Catalogo%20de%20la%20pagina/Miel/cat_Miel.webp", "name":"Miel de Campanita", "precio":"900.00", "descripcion":"Originaria de Jalisco", "inventario": 9, "categoría": "Miel"
+    "id": 9, "imagen": "cat_Miel.png", "name":"Miel de Campanita", "precio":"900.00", "descripcion":"Originaria de Jalisco", "inventario": 9, "categoría": "Miel"
     },
     {
-    "id": 10, "imagen": "https://raw.githubusercontent.com/Xamagora/Catalogo/refs/heads/main/Catalogo%20de%20la%20pagina/Miel/mielAbeja.webp", "name":"Miel de Melipona", "precio":"1100.00", "descripcion":"Originaria de Oaxaca", "inventario": 6, "categoría": "Miel"
+    "id": 10, "imagen": "mielAbeja.png", "name":"Miel de Melipona", "precio":"1100.00", "descripcion":"Originaria de Oaxaca", "inventario": 6, "categoría": "Miel"
     }
 
 ]

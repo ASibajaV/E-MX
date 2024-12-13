@@ -29,7 +29,7 @@ if  (localStorage.getItem("login_success")){
           <ul class="navbar-nav my-2 my-lg-0" style="--bs-scroll-height: 100px;">
           <!--Permanecera oculto y solo sera visible para los artesanos-->
           <li class="nav-item me-2">
-            <a class="nav-link" id="oculto" href="/Raices-Ecommerce/src/pages/Lista de productos/FormularioProductos/formularioProduct.html">Agregar Productos</a>
+            <a class="nav-link" id="oculto" href="#">Agregar Productos</a>
           </li>
             <li class="nav-item me-2">
               <a class="nav-link" href="/Raices-Ecommerce/src/pages/Lista de productos/catalogo.html">Productos</a>
@@ -41,6 +41,12 @@ if  (localStorage.getItem("login_success")){
               <a class="nav-link" href="/Raices-Ecommerce/src/pages/Sobre Nosotros/nosotros.html">Nosotros</a>
             </li>
             <!---->
+            <li>
+
+              <a class="nav-item me-2" id="cerrarSesion">
+                <button type="button" style="display: none" class="btn btn-light align-items-end mb-2 rounded-pill"style=" width: 126px">Cerrar sesión</button>
+              </a>
+            </li>
             <li>
               <a class="nav-item me-2" href="/Raices-Ecommerce/src/pages/Login/login.html">
                 <button type="button" class="btn btn-light align-items-end mb-2 rounded-pill"style="
@@ -100,7 +106,7 @@ if  (localStorage.getItem("login_success")){
             <ul class="navbar-nav my-2 my-lg-0" style="--bs-scroll-height: 100px;">
             <!--Permanecera oculto y solo sera visible para los artesanos-->
             <li class="nav-item me-2">
-              <a class="nav-link" href="#">Carrito compras</a>
+              <a class="nav-link" href="/Raices-Ecommerce/src/pages/Lista de productos/catalogo.html">Carrito compras</a>
             </li>
               <li class="nav-item me-2">
                 <a class="nav-link" href="/Raices-Ecommerce/src/pages/Lista de productos/catalogo.html">Productos</a>

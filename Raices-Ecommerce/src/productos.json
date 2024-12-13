@@ -24,7 +24,7 @@
         "id": 8, "imagen": "/Raices-Ecommerce/src/assets/Images/sol.png", "name":"Sol de Bronce", "precio":"2100.00", "descripcion":"Originario de Guerrero", "inventario": 9, "categoría": "Joyeria", "estado": "descuentos"
         },
         {
-        "id": 9, "imagen": "/Raices-Ecommerce/src/assets/Images/cat_miel.png", "name":"Miel de Campanita", "precio":"900.00", "descripcion":"Originaria de Jalisco", "inventario": 9, "categoría": "Miel", "estado": "tendencias"
+        "id": 9, "imagen": "/Raices-Ecommerce/src/assets/Images/cat_Miel.png", "name":"Miel de Campanita", "precio":"900.00", "descripcion":"Originaria de Jalisco", "inventario": 9, "categoría": "Miel", "estado": "tendencias"
         },
         {
         "id": 10, "imagen": "/Raices-Ecommerce/src/assets/Images/mielAbeja.png", "name":"Miel de Melipona", "precio":"1100.00", "descripcion":"Originaria de Oaxaca", "inventario": 6, "categoría": "Miel", "estado": "nuevo"
