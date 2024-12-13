@@ -1,9 +1,37 @@
-document.getElementById("enviar").addEventListener("click",function(event)
+/* const btn = document.getElementById('button');
+
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_u3126dx';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Sent!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+}); */
+
+document.getElementById("button").addEventListener("click",function(event)
 {   event.preventDefault();
+<<<<<<< HEAD
     const name= document.getElementById("nombre").value.trim();
     const correo= document.getElementById("correo").value.trim();
     const telefono=document.getElementById("telefono").value.trim(); 
     const comentario=document.getElementById("comentario").value.trim();
+=======
+    const name= document.getElementById("name").value.trim();
+    const correo= document.getElementById("email").value.trim();
+    const telefono=document.getElementById("phone").value.trim(); 
+    const comentario=document.getElementById("message").value.trim();
+>>>>>>> f4c93eb866ca458b09269e515f6d8d95022ec1f1
     const soloLetrasRegex = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'-]+$/;;
     let condicion1;
     let condicion2;
@@ -66,7 +94,8 @@ document.getElementById("enviar").addEventListener("click",function(event)
         condicion5=1;
        }
        if(condicion1===1 && condicion2===1 && condicion3===1 && condicion4===1 && condicion5===1){
-        sendEmail();
+        /* sendEmail(); */
+        sendEmail2();
         document.getElementById("mensajeError").style.visibility="hidden"
         document.getElementById("mensajeError1").style.visibility="hidden"
         document.getElementById("mensajeError2").style.visibility="hidden"
@@ -101,4 +130,21 @@ function sendEmail(){
     }
   } 
 );
+}
+function sendEmail2(){
+  const serviceID = 'default_service';
+   const templateID = 'template_u3126dx';
+
+   emailjs.sendForm(serviceID, templateID, form)
+    .then(() => {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Tu mensaje ha sido enviado",
+        showConfirmButton: false,
+        timer: 2000
+      });
+    }, (err) => {
+      alert(JSON.stringify(err));
+    });
 }
