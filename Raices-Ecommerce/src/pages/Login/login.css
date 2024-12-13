@@ -1,0 +1,90 @@
+/* Aqui empieza log in  */
+/* General Container */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 100vh;
+  font-family: "Fjalla One", sans-serif;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Imagenes */
+.image-style {
+  width: 100%;
+  max-width: 200px; /* Ajusta según el tamaño deseado */
+  border-radius: 10px; /* Esquinas redondeadas */
+}
+
+/* Estilos para los contenedores con degradado */
+
+
+#boxStyleTop{
+    background: linear-gradient(135deg, #FC94B7, #E91E63);
+    padding: 20px;
+    border-radius: 15px; /* Bordes redondeados */
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Efecto de profundidad */
+    height: 320px;
+    max-width: 500px;
+    margin-right: 20px;
+}
+
+#boxStyleBottom {
+  background: linear-gradient(135deg, #FC94B7, #E91E63);
+  padding: 20px;
+  border-radius: 15px; /* Bordes redondeados */
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Efecto de profundidad */
+  height: 200px;
+}
+
+#mielpng{
+    max-height: 30px;
+}
+
+
+/* Inputs */
+#inputEmail,
+#inputContrasena {
+  display: block;
+  width: 90%;
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Botones */
+#botonStyle, #loginButton {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "Fjalla One", sans-serif;
+  color: white;
+  background-color: #00BCD4; /* Azul para destacar */
+  border: none;
+  border-radius: 10px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self:flex-end;
+  align-self: center;
+}
+
+#botonStyle:hover {
+  background-color: #0097A7; /* Cambia el color al pasar el cursor */
+}
+
+/* Texto adicional */
+p {
+  font-size: 16px;
+  color: black;
+}

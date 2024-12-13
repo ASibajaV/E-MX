@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Fjalla One' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Contáctanos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Icon -->
+    <link rel="icon" href="/Raices-Ecommerce/src/assets/Images/caco.png" type="image/png">
+    <link rel="stylesheet" href="formulario.css">
+    <!-- Aquí se agrego el estilo de header y el footer -->
+    <link rel="stylesheet" href="/Raices-Ecommerce/src/assets/header_footer/estilo.css">
+</head>
+<body>
+<!-- Aquí invocamos el header -->
+  <header id="Header"></header>
+ <!-- Aquí empieza el formulario -->
+<div id="estructuraGrid">
+  <div id="contenedorImagen">
+      <img src="/Raices-Ecommerce/src/assets/Images/compradora.jpg" alt="Imagen compradora" class="imagen">
+  </div>
+  <div>
+      <form class="form-container row g-3" id="miFormulario">
+          <h1>Formulario de comprador</h1>
+          
+          <div class="col-12">
+              <input type="text" class="form-control" id="nombre" placeholder="Nombre(s)">
+          </div>
+          
+          <div class="col-12">
+              <input type="text" class="form-control" id="apellido" placeholder="Apellido(s)">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Correo: </label>
+            <input type="email" class="form-control" id="email" placeholder="example@mail.com">
+        </div>
+          
+          <div class="col-md-6">
+            <label class="form-label">Contraseña: </label>
+            <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña">
+          </div>
+          
+          <div class="col-md-6">
+              <label class="form-label">Confirma contraseña: </label>
+              <input type="password" class="form-control" id="passPassword" placeholder="Confirma tu contraseña">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Teléfono: </label>
+            <input type="text" class="form-control" id="telefono" placeholder="1234567890">
+        </div>
+        <div class="col-12">
+              <label class="form-label">Dirección: </label>
+              <input type="text" class="form-control" id="direccion" placeholder="1234 Calle, Avenida, Privada...">
+          </div>
+          
+          <div class="col-12">
+              <label class="form-label">Tipo de domicilio</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Casa, apartamento, estudio o piso">
+          </div>
+          
+          <div class="col-md-6">
+              <label class="form-label">Ciudad</label>
+              <input type="text" class="form-control" id="inputCity">
+          </div>
+          
+          <div class="col-md-4">
+              <label class="form-label">Estado</label>
+              <select id="inputState" class="form-select"> 
+                  <!-- Opciones adicionales -->
+              </select>
+          </div>
+          
+          <div class="col-md-2">
+              <label class="form-label">C.P</label>
+              <input type="text" class="form-control" id="cp">
+          </div>
+          
+          <div class="col-12">
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck">
+                      Términos y condiciones
+                  </label>
+              </div>
+          </div>
+          
+          <div class="col-12 text-center">
+              <div class="form-check">
+                  <input type="radio" class="form-check-input" id="promociones" name="promociones">
+                  <label for="promociones" class="form-check-label">Quiero recibir promociones</label>
+              </div>
+          </div>
+          
+          <div class="col-12 text-center">
+              <button type="submit" id="registro" class="btn btn-primary">Regístrate</button>
+          </div>
+      </form>
+  </div>
+</div>
+
+  <!-- Aquí empieza el Footer -->
+<footer id="Footer"></footer>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/Raices-Ecommerce/src/assets/header_footer/header_footer.js"></script>
+  <script src="./formulario2.js"></script>
+</body>
+</html>

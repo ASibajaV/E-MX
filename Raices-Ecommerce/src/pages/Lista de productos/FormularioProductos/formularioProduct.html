@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Fjalla+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Formulario de Productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/Raices-Ecommerce/src/pages/Lista de productos/FormularioProductos/styleFormProd.css">
+     <!-- Aquí se agrego el estilo de header y el footer -->
+     <link rel="stylesheet" href="/Raices-Ecommerce/src/assets/header_footer/estilo.css">
+</head>
+<body>
+    <!--Aqui empieza el header -->
+  <header id="Header"></header>
+   <!--Aqui termina el header -->
+    
+    <section class="formulario_Productos"> <!--Aqui empieza mi sección de productos -->
+
+      <main class="container-fluid d-flex p-0 main-container">
+        <div class="container-fluid d-flex justify-content-center " id="formulario">
+              <div class="cardForm rounded-4 " style="width: 600px; margin-bottom: 100px; margin-top: 50px;">
+                <div class="cardBodyForm justify-content-center rounded-4 "
+                  style=" background: linear-gradient(to bottom, #fc94b7, #f06292); padding: 20px;">
+                  <h5 class="cardForm-title text-center texto "> Formulario de productos</h5>
+                  <div class="conteinerForm-fluid d-flex flex-column justify-content-center mt-5">
+                    <form action="#" id="formProduct">
+                      <label for="exampleFormControlInput1" class="form-label">Id: </label>
+                      <input type="number" min="1" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="id"
+                        aria-describedby="emailHelp" placeholder="Ingresa el Id del producto">
+                      <p id="mensajeError1"></p>
+                      <label for="exampleFormControlInput1" class="form-label">Imagen: </label>
+                      <input type="text" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="imagen"
+                        aria-describedby="emailHelp" placeholder="Ingresa el URL de la imagen del producto">
+                      <!--<input type="email" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="correo"
+                        aria-describedby="emailHelp" placeholder="Ingresa tu correo electrónico"> -->
+                      <p id="mensajeError2"></p>
+                      <!--Nombre del producto -->
+                      <label for="exampleFormControlInput1" class="form-label">Nombre del producto: </label>
+                      <input type="text" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="name"
+                        aria-describedby="emailHelp" placeholder="Ingresa el nombre del producto">
+                      <p id="mensajeError3"></p>
+                        <!--Precio del producto -->
+                      <label for="exampleFormControlInput1" class="form-label">Precio del producto: </label>
+                      <input type="currency" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="precio"
+                        aria-describedby="emailHelp" placeholder="Ingresa el precio del producto">
+                      <p id="mensajeError3"></p>
+                    <!--Numero de productos a agregar -->
+                    <label for="exampleFormControlInput1" class="form-label">Numero de productos a agregar: </label>
+                    <input type="number" min="1" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="inventario"
+                      aria-describedby="emailHelp" placeholder="¿Cuantos agregas?">
+                    <p id="mensajeError3"></p>
+                    <!--Categoria del producto -->
+                    <label for="exampleFormControlInput1" class="form-label">Categoría: </label>
+                    <select id="categoria" style="width: 300px;">
+                        <option value="Miel">Miel</option>
+                        <option value="Bolsas">Bolsas</option>
+                        <option value="Cafe">Café</option>
+                        <option value="Joyería">Joyería</option>
+                        <option value="Otros">Otros</option>
+                      </select>
+                    <!--<input type="text" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="name"
+                      aria-describedby="emailHelp" placeholder="Ingresa el nombre del producto">
+                    <p id="mensajeError3"></p> -->
+                    <br>
+                    <label for="exampleFormControlInput1" class="form-label">Estado: </label>
+                    <select id="estado" style="width: 300px;">
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Promociones">Promociones</option>
+                        <option value="Destacado">destacado</option>
+                        <option value="Destacado">cotidiano</option>
+                      </select>
+                      <br>
+                      <!--Campo para la descripción del producto -->
+                      <label for="exampleFormControlInput1" class="form-label">Descripción: </label>
+                      <textarea class="form-control formu1 " style="height: 110px;" id="descripcion" rows="3"
+                        placeholder="Describe el producto."></textarea>
+                    </form>
+                  </div>
+                  <div class="" id="uno"></div>
+                  
+                  <div class="container-fluid d-flex justify-content-center ">
+                    <input class="btn btn-primary mt-5" id="enviar" style="width: 300px; color: white; font-size: 20px; font-family: Fjalla One;
+                      font-weight: 400;
+                      font-style: normal; background-color: #0B5ED7; " type="submit" placeholder="Enviar">
+                      <button  class="btn btn-danger mt-5" id="Update" style="display: none; width: 300px;">Actualizar</button>
+                      <br>
+                      <button type="button" class="btn btn-primary mt-5" id="Cancelar" style="display: none; width: 300px;">Cancelar</button>
+                      
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--Aqui empieza la otra sección-->
+            
+            <div class="container-fluid d-flex flex-column mb-5">
+              <button id="eliminarTodos" class="btn btn-danger mt-5">Eliminar Todo</button>
+              <div id="productos">
+                  <h2>Lista de Productos</h2>
+                  <div class="productos-container">
+                      <!-- Aquí se mostrarán los productos -->
+                  </div>
+              </div>
+          </div>
+      </main>
+
+    <!--Aqui termina el formulario  -->
+        
+  
+    </section> <!--Aqui termina mi sección de productos -->
+    <!-- Aqui empieza el footer -->
+    <footer id="Footer"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="/Raices-Ecommerce/src/pages/Lista de productos/FormularioProductos/datosEnJson.js"></script> 
+    <script src="/Raices-Ecommerce/src/assets/header_footer/header_footer.js"></script>
+    
+</body>
+
+
