@@ -1,0 +1,128 @@
+
+#Menu{
+    font-size: 24px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.boton{ 
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.texto{
+    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.formu1{
+    font-size: 14px;
+    font-family: "Fjalla One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.productos{
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.btn{
+    font-size: 11px;
+    
+}
+#contenedor2{
+   height: 100px;
+   background: linear-gradient(#73C2FB,#73C2FB,#28A0F6);
+}
+.list{
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+.ancla{
+    text-decoration: none;
+}
+.lista{
+    margin-bottom: 5px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+.titulo3{
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.letra{
+    font-size: 14px;
+    font-family: "Fjalla One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img, input, nav {
+    max-width: 100%;
+}
+/* Aqui empieza el formulario */
+
+/* Aqui termina el formulario */
+/* Responsividad */
+#viejito{
+    width: 650px ;
+     height: 500px ; 
+     border-radius: 50px ; 
+     margin-top: 50px; 
+}
+#mensajeError1{
+    color: black;
+    font-size: 14px;
+    font-style: "Fjalla One" ; 
+    margin-bottom: 0;
+    visibility: hidden;
+}
+#mensajeError2{
+    color: black;
+    font-size: 14px;
+    font-style: "Fjalla One" ; 
+    margin-bottom: 0;
+    visibility: hidden;
+}
+#mensajeError3{
+    color: black;
+    font-size: 14px;
+    font-style: "Fjalla One" ; 
+    margin-bottom: 0;
+    visibility: hidden;
+}
+#mensajeError{
+    color: black;
+    font-size: 14px;
+    font-style: "Fjalla One" ; 
+    margin-bottom: 0;
+    visibility: hidden;
+}
+/* Estilos responsivos para dispositivos móviles */
+@media (max-width: 768px) {
+ main{
+        flex-direction: column;
+    }
+    #formulario{
+        margin-top: 25px;
+    }
+    #viejito{
+        margin-top: 0px;
+    }
+}
