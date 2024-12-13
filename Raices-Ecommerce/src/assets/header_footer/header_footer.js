@@ -35,12 +35,18 @@ if  (localStorage.getItem("login_success")){
               <a class="nav-link" href="/Raices-Ecommerce/src/pages/Lista de productos/catalogo.html">Productos</a>
             </li>
             <li class="nav-item me-2">
-              <a class="nav-link" href="/Raices-Ecommerce/src/pages/Contactanos/contactanos.html">Contactanos</a>
+              <a class="nav-link" href="/Raices-Ecommerce/src/pages/Contactanos/contactanos.html">Contáctanos</a>
             </li>
             <li class="nav-item me-2">
               <a class="nav-link" href="/Raices-Ecommerce/src/pages/Sobre Nosotros/nosotros.html">Nosotros</a>
             </li>
             <!---->
+            <li>
+
+              <a class="nav-item me-2" id="cerrarSesion">
+                <button type="button" style="display: none" class="btn btn-light align-items-end mb-2 rounded-pill"style=" width: 126px">Cerrar sesión</button>
+              </a>
+            </li>
             <li>
               <a class="nav-item me-2" href="/Raices-Ecommerce/src/pages/Login/login.html">
                 <button type="button" class="btn btn-light align-items-end mb-2 rounded-pill"style="
@@ -106,7 +112,7 @@ if  (localStorage.getItem("login_success")){
                 <a class="nav-link" href="/Raices-Ecommerce/src/pages/Lista de productos/catalogo.html">Productos</a>
               </li>
               <li class="nav-item me-2">
-                <a class="nav-link" href="/Raices-Ecommerce/src/pages/Contactanos/contactanos.html">Contactanos</a>
+                <a class="nav-link" href="/Raices-Ecommerce/src/pages/Contactanos/contactanos.html">Contáctanos</a>
               </li>
               <li class="nav-item me-2">
                 <a class="nav-link" href="/Raices-Ecommerce/src/pages/Sobre Nosotros/nosotros.html">Nosotros</a>
@@ -178,7 +184,7 @@ if  (localStorage.getItem("login_success")){
               <a class="nav-link" href="/Raices-Ecommerce/src/pages/Lista de productos/catalogo.html">Productos</a>
             </li>
             <li class="nav-item me-2">
-              <a class="nav-link" href="/Raices-Ecommerce/src/pages/Contactanos/contactanos.html">Contactanos</a>
+              <a class="nav-link" href="/Raices-Ecommerce/src/pages/Contactanos/contactanos.html">Contáctanos</a>
             </li>
             <li class="nav-item me-2">
               <a class="nav-link" href="/Raices-Ecommerce/src/pages/Sobre Nosotros/nosotros.html">Nosotros</a>

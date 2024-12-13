@@ -29,12 +29,17 @@
 
     <!-- Símbolos de redes sociales -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-
+    <!-- Para agregar el titulo -->
     <title>Raíces México</title>
+    <!-- Para agregar el ícono -->
+    <link rel="icon" href="./pages/Inicio/cacomixtle.ico" type="image/x-icon">
+    <!-- Se añadio etiqueta para conectar con css -->
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="../src/pages/Inicio/estilo.css">
   </head>
   
   <body>
-<!-- Aquí invicamos el header -->
+<!-- Aquí invocamos el header -->
   <header id="Header"></header>
 
     <main class="contenedor">
@@ -42,8 +47,6 @@
         <span class="tagline">PRODUCTOS CON ALMA</span>
       
         <h1 class="titulo">Cada producto refleja la riqueza de nuestras tradiciones.</h1>
-      
-        <p class="subtitulo">Quieres actualizaciones en tu email? </p>
 
 <!--Aquí comienza un carrusel  -->
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -52,7 +55,7 @@
         <img src="/Raices-Ecommerce/src/assets/Images/Ofertas Navideñas.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="/Raices-Ecommerce/src/assets/Images/Ofertas Navideñas_1.jpg"" class="d-block w-100" alt="...">
+        <img src="/Raices-Ecommerce/src/assets/Images/Ofertas Navideñas_1.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
         <img src="/Raices-Ecommerce/src/assets/Images/Ofertas Navideñas_2.jpg" class="d-block w-100" alt="...">
@@ -72,149 +75,38 @@
         <nav class="navbar container d-flex flex-row">
 
           <section class="col">
-            <a class="estilos-categorias nav-link" href="#">
-                <img class="categoria" src="./assets/Images/cabeza.png" alt="Miel">
-                <div>Miel</div>
-            </a>
+            <div class="estilos-categorias nav-link" id="catFavoritos">
+                <img class="categoria" src="./assets/Images/cabeza.png" alt="Favoritos">
+                <div>Favoritos</div>
+            </div>
           </section>
 
           <section class="col">
-          <a class="estilos-categorias nav-link" href="#">
-              <img class="categoria" src="./assets/Images/tortu.png" alt="Bolsas">
-              <div>Bolsas</div>
+          <div class="estilos-categorias nav-link" id="catTendencias">
+              <img class="categoria" src="./assets/Images/tortu.png" alt="Tendencias">
+              <div>Tendencias de temporada</div>
             </a>
           </section>
 
         <section class="col">
-          <a class="estilos-categorias nav-link" href="#">
-              <img class="categoria" src="./assets/Images/pecadito.png" alt="Café">
-              <div>Café</div>
-          </a>
+          <div class="estilos-categorias nav-link" id="catDescuentos">
+              <img class="categoria" src="./assets/Images/pecadito.png" alt="Descuentos">
+              <div>Descuentos</div>
+          </div>
         </section>
 
         <section class="col">
-          <a class="estilos-categorias nav-link" href="#">
-              <img class="categoria" src="./assets/Images/jaguar.png" alt="Joyería">
-              <div>Joyería</div>
-          </a>
+          <div class="estilos-categorias nav-link" id="catNuevo">
+              <img class="categoria" src="./assets/Images/jaguar.png" alt="Nuevo">
+              <div>Lo más nuevo</div>
+          </div>
         </section>
 
       </nav>
-  
+
       <!-- Lista de Productos -->
+      <section id="cartas_productos" class="flex-container"></section>
 
-      <!-- Sección 1 -->
-      <span class="container mt-4">
-          <div class="row text-center">
-
-              <section class="col-md-3">
-                  <div class="card producto-card">
-                      <img src="./assets/Images/bolsa.png" class="card-img-top" alt="Bolsa" style="max-width: 350px; margin: 0 auto; max-height: 450px;">
-                      <div class="card-body">
-                          <h5 class="card-title">Bolsa Henequen</h5>
-                          <p>Originaria de Yucatán</p>
-                          <p class="card-text">1500MX</p>
-                          <button class="btn btn-primary">Comprar</button>
-                      </div>
-                  </div>
-                </section>
-
-              <section class="col-md-3">
-                  <div class="card producto-card">
-                      <img src="./assets/Images/cafecien.png" class="card-img-top" alt="Granos de Café" style="max-width: 350px; margin: 0 auto; max-height: 550px;">
-                      <div class="card-body">
-                          <h5 class="card-title">Café Orgánico</h5>
-                          <p>Originario de Chiapas</p>
-                          <p class="card-text">850MX</p>
-                          <button class="btn btn-primary">Comprar</button>
-                      </div>
-                  </div>
-              </section>
-
-              <section class="col-md-3">
-                  <div class="card producto-card">
-                      <img src="./assets/Images/sol.png" class="card-img-top" alt="Collar"style="max-width: 350px; margin: 0 auto; max-height: 450px;">
-                      <div class="card-body">
-                          <h5 class="card-title">Sol de Bronce</h5>
-                          <p>Originario de Guerrero</p>
-                          <p class="card-text">2100MX</p>
-                          <button class="btn btn-primary">Comprar</button>
-                      </div>
-                  </div>
-              </section>
-
-              <section class="col-md-3">
-                  <div class="card producto-card">
-                      <img src="./assets/Images/miel.png" class="card-img-top" alt="Productos Miel" style="max-width: 350px; margin: 0 auto; max-height: 450px;">
-                      <div class="card-body">
-                          <h5 class="card-title">Paquete de Miel</h5>
-                          <p>Originaria de Yucatán</p>
-                          <p class="card-text">1700MX</p>
-                          <button class="btn btn-primary">Comprar</button>
-                      </div>
-                  </div>
-              </section>
-
-          </div>
-        </span>
-
-        <!-- Sección 2 -->
-        <span class="container mt-4">
-          <div class="row text-center">
-
-              <section class="col-md-3">
-                  <div class="card producto-card">
-                      <img src="./assets/Images/plata.png" class="card-img-top" alt="Pulsera" style="max-width: 350px; margin: 0 auto; max-height: 450px;">
-                      <div class="card-body">
-                          <h5 class="card-title">Jaguar de Plata</h5>
-                          <p>Originaria de Taxco</p>
-                          <p class="card-text">1650MX</p>
-                          <button class="btn btn-primary">Comprar</button>
-                      </div>
-                  </div>
-                </section>
-
-              <section class="col-md-3">
-                  <div class="card producto-card">
-                      <img src="./assets/Images/bolsa1.png" class="card-img-top" alt="Bolsa" style="max-width: 350px; margin: 0 auto; max-height: 550px;">
-                      <div class="card-body">
-                          <h5 class="card-title">Bolsa Mostaza</h5>
-                          <p>Originaria de Yucatán</p>
-                          <p class="card-text">950MX</p>
-                          <button class="btn btn-primary">Comprar</button>
-                      </div>
-                  </div>
-              </section>
-
-              <section class="col-md-3">
-                  <div class="card producto-card">
-                      <img src="./assets/Images/cafe.png" class="card-img-top" alt="Café"style="max-width: 350px; margin: 0 auto; max-height: 450px;">
-                      <div class="card-body">
-                          <h5 class="card-title">Café de Altura</h5>
-                          <p>Originario de Oaxaca</p>
-                          <p class="card-text">999MX</p>
-                          <button class="btn btn-primary">Comprar</button>
-                      </div>
-                  </div>
-              </section>
-
-              <section class="col-md-3">
-                  <div class="card producto-card">
-                      <img src="./assets/Images/miel1.png" class="card-img-top" alt="Panal de Miel" style="max-width: 350px; margin: 0 auto; max-height: 450px;">
-                      <div class="card-body">
-                          <h5 class="card-title">Miel de Manglar</h5>
-                          <p>Originaria de Campeche</p>
-                          <p class="card-text">1150MX</p>
-                          <button class="btn btn-primary">Comprar</button>
-                      </div>
-                  </div>
-              </section>
-              
-          </div>
-        </span>
-
-    </main>
-</div>
 <!-- Aquí comienzan los reviews -->
 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
   <div class="carousel-inner">
@@ -243,6 +135,7 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+    </main>
 <!-- Aquí empieza el Footer -->
 <footer id="Footer"></footer>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
