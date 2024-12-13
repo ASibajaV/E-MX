@@ -25,7 +25,8 @@ document.getElementById("button").addEventListener("click",function(event)
     const correo= document.getElementById("email").value.trim();
     const telefono=document.getElementById("phone").value.trim(); 
     const comentario=document.getElementById("message").value.trim();
-    const soloLetrasRegex = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'-]+$/;;
+    const soloLetrasRegex = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'-]+$/;
+    const telefonoRegex = /^[0-9]{10,}$/;
     let condicion1;
     let condicion2;
     let condicion3;
@@ -64,7 +65,7 @@ document.getElementById("button").addEventListener("click",function(event)
     }else{document.getElementById("mensajeError2").style.visibility="hidden" 
       condicion3=1;
     } 
-     if(telefono.length!=10 || telefono.match(/[a-z]/g)||telefono==""){
+     if(telefono.length!=10 || !telefonoRegex.test(telefono)||telefono==""){
       document.getElementById("mensajeError3").style.visibility="visible";
        Swal.fire({
         icon: "error",
