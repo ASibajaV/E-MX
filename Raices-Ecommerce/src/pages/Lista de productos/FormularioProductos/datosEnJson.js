@@ -1,7 +1,8 @@
 // Lista de productos obtenida del localStorage o vacía
 let listaDeProductos = JSON.parse(localStorage.getItem('productos')) || [];
-
+/*-----------------------------------------------------------------------------------*/
 // Función para mostrar los productos guardados
+/*-----------------------------------------------------------------------------------*/
 function mostrarProductos() {
     const productosContainer = document.querySelector('.productos-container');
     productosContainer.innerHTML = ''; // Limpiar los productos antes de mostrar los nuevos
@@ -30,6 +31,9 @@ function mostrarProductos() {
         productosContainer.appendChild(productoDiv);
     });
 }
+/*-----------------------------------------------------------------------------------*/
+// Función para obtener los datos del formulario y convertirlos en formato JSON
+/*-----------------------------------------------------------------------------------*/
 // Agregar el event listener al botón de envío
 const btnEnviar = document.getElementById('enviar');
 btnEnviar.addEventListener('click', obtenerDatosFormulario);
@@ -73,6 +77,7 @@ function obtenerDatosFormulario(event) {
         document.getElementById("uno").textContent="Ingresa un precio valido";
         return;
     }
+    
     else if(inventario===""){
         
         document.getElementById("uno").className= "alert alert-danger";
@@ -80,8 +85,20 @@ function obtenerDatosFormulario(event) {
         document.getElementById("uno").textContent="Ingresa numero de inventario";
         return;
     }
-    
-    /*Falta AGREGAR CATEGORIA Y ESTADO */
+    else if(categoria==="EligeUnaOpcion"){
+        
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Por favor elige una categoría ";
+        return;
+    }
+    else if(estado==="EligeUnaOpcion"){
+        
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Por favor elige un estado ";
+        return;
+    }
     else if(descripcion===""){
         document.getElementById("uno").className= "alert alert-danger";
         document.getElementById("uno").setAttribute("role","alert");
@@ -116,6 +133,9 @@ function obtenerDatosFormulario(event) {
     // Mostrar los productos actualizados
     mostrarProductos();
 }}
+/*-----------------------------------------------------------------*/
+//Función para Eliminar todos los productos
+/*-----------------------------------------------------------------*/
 
 const btnEliminarTodos = document.getElementById('eliminarTodos');
 btnEliminarTodos.addEventListener('click', eliminarTodosLosProductos);
@@ -131,6 +151,8 @@ function eliminarTodosLosProductos() {
     mostrarProductos();
 }
 
+/*-----------------------------------------------------------------*/
+// Función para editar producto
 /*-----------------------------------------------------------------*/
 const btnUpdate = document.getElementById('Update');
 btnUpdate.style.display = "none"; 
@@ -155,6 +177,67 @@ function updateData(id) {
 
     // Agregar evento al botón de actualización
     btnUpdate.addEventListener('click', function () {
+    // Recuperar los datos del formulario
+    const id = document.getElementById('id').value;
+    const imagen = document.getElementById('imagen').value;
+    const name = document.getElementById('name').value;
+    const precio = document.getElementById('precio').value;
+    const inventario = document.getElementById('inventario').value;
+    const categoria = document.getElementById('categoria').value;
+    const estado = document.getElementById('estado').value;
+    const descripcion = document.getElementById('descripcion').value;
+        // Validación básica para evitar campos vacíos
+    if (id===""){
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Ingresa id";
+        return;
+    }
+    else if (imagen===""){
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Ingresa imagen";
+        return;
+    }
+    else if(name==="" || name.match(/[0-9]/g)){
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Ingresa un nombre valido para tu producto";
+        return;
+    }
+    else if(precio==="" || precio.match(/[a-z]/g)){
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Ingresa un precio valido";
+        return;
+    }
+    else if(inventario===""){
+        
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Ingresa numero de inventario";
+        return;
+    }
+    else if(categoria==="EligeUnaOpcion"){
+        
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Por favor elige una categoría ";
+        return;
+    }
+    else if(estado==="EligeUnaOpcion"){
+        
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Por favor elige un estado ";
+        return;
+    }
+    else if(descripcion===""){
+        document.getElementById("uno").className= "alert alert-danger";
+        document.getElementById("uno").setAttribute("role","alert");
+        document.getElementById("uno").textContent="Ingresa una descripción";
+        return;
+    } else {
         // Actualizar los datos del producto
         producto.imagen = document.getElementById('imagen').value;
         producto.name = document.getElementById('name').value;
@@ -169,23 +252,24 @@ function updateData(id) {
         mostrarProductos();
 
         location.reload();
-       
+    
         // Ocultar el botón de Actualizar y mostrar el de Enviar nuevamente
         document.getElementById("enviar").style.display = "block";
         btnUpdate.style.display = "none";
+    }
     });
-    // Agregar evento al botón de actualización
+    // Agregar evento al botón de cancelar
     btnCancelar.addEventListener('click', function () {
         location.reload();
-    });
     
+    });
+
 }
 
   
 /*-----------------------------------------------------------------*/
-
-
 // Función para eliminar un producto de la lista
+/*-----------------------------------------------------------------*/
 function eliminarProducto(id) {
     // Filtrar el producto que no se desea eliminar
     listaDeProductos = listaDeProductos.filter(producto => producto.id !== id);
