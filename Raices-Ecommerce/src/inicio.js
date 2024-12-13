@@ -35,7 +35,7 @@ function filtrarProductos(productos, estado) {
 fetch('productos.json')
   .then(response => response.json())
   .then(data => {
-    productos = data; // Guarda los productos en una variable global (no es la mejor práctica, pero simplifica el ejemplo)
+    productos = data; // Guarda los productos en una variable global
     mostrarProductos(productos);
   });
 
