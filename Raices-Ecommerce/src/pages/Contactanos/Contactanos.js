@@ -21,10 +21,10 @@ document.getElementById('form')
 
 document.getElementById("button").addEventListener("click",function(event)
 {   event.preventDefault();
-    const name= document.getElementById("name").value.trim();
-    const correo= document.getElementById("email").value.trim();
-    const telefono=document.getElementById("phone").value.trim(); 
-    const comentario=document.getElementById("message").value.trim();
+  const name= document.getElementById("name").value.trim();
+  const correo= document.getElementById("email").value.trim();
+  const telefono=document.getElementById("phone").value.trim(); 
+  const comentario=document.getElementById("message").value.trim();
     const soloLetrasRegex = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'-]+$/;;
     let condicion1;
     let condicion2;
