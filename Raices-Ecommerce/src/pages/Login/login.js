@@ -147,4 +147,3 @@ login.onclick = (e) => {
       });
     }
 }
->>>>>>> 55bd01279acd3889c7bbce98c96978001cb95cb9

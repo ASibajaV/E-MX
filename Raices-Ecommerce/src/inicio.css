@@ -60,20 +60,79 @@
       
     /* Categorías en círculos */
     .categoria {
-        width: 75px;        
+      width: 100px;
+      height: 100px; /* Hacer los íconos perfectamente circulares */
+      border-radius: 50%; 
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra en las imágenes */      
     }
 
-    .estilos-categorias{
-        font-family: "Fjalla One", sans-serif;
+    .categoria:hover {
+      transform: scale(1.2); /* Agrandar ligeramente al pasar el cursor */
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más marcada */
     }
     
+    .estilos-categorias{
+      font-family: "Fjalla One", sans-serif;
+      text-align: center; /* Centrar el texto */
+      color: #333; /* Color del texto */
+      text-decoration: none; /* Eliminar subrayado */
+      transition: color 0.3s ease; /* Transición de color */
+    }
+    
+    .estilos-categorias:hover {
+      color: #007bff; /* Cambiar color al pasar el cursor */
+    }
+    
+    .estilos-categorias div {
+      margin-top: 10px; /* Espaciado entre la imagen y el texto */
+      font-size: 14px; /* Tamaño del texto */
+    }
+    
+    /* Animación al aparecer */
+    @keyframes fadeInUp {
+      from {
+          opacity: 0;
+          transform: translateY(20px);
+      }
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+    }
     
     /* Tarjeta de producto */
-    .producto-card {
-        border-radius: 15px;
-        background: linear-gradient(135deg, #F06292, #BA68C8);
-        color: #fff;
-    }
+
+    .cartas_productos{
+      Margin: 30px;
+  
+  }
+  
+  
+  .flex-container{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      
+  }
+
+    .card{
+      border: 2px solid #e0e0e0; /* Color del borde */
+    border-radius: 15px;       /* Bordes redondeados */
+    overflow: hidden;          /* Para evitar que contenido se salga de la tarjeta */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 15px;
+          background: linear-gradient(135deg, #F06292, #BA68C8);
+          color: #fff;
+          max-width: 350px;
+           margin: 0 auto;
+           display: inline;
+            max-height: 550px;
+  }
+
+    
     
     .producto-card .btn-primary {
         background-color: #64b5f6;
