@@ -47,7 +47,7 @@ function validarFormulario() {
     const codigoPostal = document.getElementById("cp").value.trim();
     const estadoSeleccionado = document.getElementById("inputState").value;
     const terminos = document.getElementById("gridCheck");
-    const soloLetrasRegex = /^[a-zA-Z\s]+$/;
+    const soloLetrasRegex = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'-]+$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const direccionRegex = /[0-9]/;
     const telefonoRegex = /^[0-9]{10,}$/;
