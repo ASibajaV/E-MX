@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+  }
+  
+  h1, h2 {
+    color: black;
+  }  
+  .producto{
+    border-radius: 15px;
+    background: linear-gradient(135deg, #F06292, #BA68C8);
+    color: #fff;
+    border-radius: 15px;
+    max-width: 350px;
+    display: inline;
+
+  }
+  .card{
+      border-radius: 15px;
+      background: linear-gradient(135deg, #F06292, #BA68C8);
+      color: #fff;
+      border-radius: 15px;
+      margin: 0 auto;
+      display: inline;
+  
+  }
+  .card-img-top{
+    max-height: 250px;
+  }
+
+
+  .productos{
+    Margin: 30px;
+  }
+  
+  
+  .flex-container{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      
+  }

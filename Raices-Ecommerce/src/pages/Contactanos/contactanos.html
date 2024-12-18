@@ -23,6 +23,7 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="./contactanos.css">
   <link rel="stylesheet" href="/Raices-Ecommerce/src/assets/header_footer/estilo.css">
+  
   <!-- Para agregar el titulo -->
   <title>Contáctanos</title>
   <!-- Para agregar el ícono -->
@@ -40,27 +41,27 @@
         <div class="card-body justify-content-center rounded-4 "
           style=" background: linear-gradient(to bottom, #fc94b7, #f06292);">
           <h5 class="card-title text-center texto ">Contáctanos</h5>
-          <div class="conteiner-fluid d-flex flex-column justify-content-center mt-5">
-            <form action="#" id="form">
-              <input type="text" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="nombre"
-                aria-describedby="emailHelp" placeholder="Ingresa tu nombre completo">
-              <p id="mensajeError1">Ingrese un nombre válido</p>
-              <input type="email" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="correo"
-                aria-describedby="emailHelp" placeholder="Ingresa tu correo electrónico">
-              <p id="mensajeError2">Ingrese un correo válido</p>
-              <input type="tel" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="telefono"
-                aria-describedby="emailHelp" placeholder="Ingresa tu número telefónico">
-              <p id="mensajeError3">Ingrese un teléfono válido</p>
-              <textarea class="form-control formu1 " style="height: 110px;" id="comentario" rows="3"
-                placeholder="¿Cómo podemos ayudarte?"></textarea>
-            </form>
+          <form action="#" id="form">
+          <div class="conteiner-fluid d-flex flex-column justify-content-center mt-5">  
+              <input type="text" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="name"
+                aria-describedby="emailHelp" placeholder="Ingresa tu nombre completo" name="name">
+              <p id="mensajeError1">Ingrese un nombre valido</p>
+              <input type="text" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="email"
+                aria-describedby="emailHelp" placeholder="Ingresa tu correo electrónico" name="email">
+              <p id="mensajeError2">Ingrese un correo valido</p>
+              <input type="text" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="phone"
+                aria-describedby="emailHelp" placeholder="Ingresa tu número telefónico" name="phone">
+              <p id="mensajeError3">Ingrese un telefono valido</p>
+              <input class="form-control formu1 " style="height: 110px;" id="message" rows="3"
+                placeholder="¿Cómo podemos ayudarte?" name="message" type="text"></input>
           </div>
           <p id="mensajeError">Favor de llenar todos los espacios</p>
           <div class="container-fluid d-flex justify-content-center ">
-            <input class="btn btn-primary mt-5" id="enviar" style="width: 300px; color: white; font-size: 20px; font-family: Fjalla One;
+            <input class="btn btn-primary mt-5" id="button" style="width: 300px; color: white; font-size: 20px; font-family: Fjalla One;
               font-weight: 400;
               font-style: normal; background-color: #0B5ED7; " type="submit" placeholder="Enviar">
           </div>
+        </form>
         </div>
       </div>
     </div>
@@ -83,8 +84,13 @@
   </main>
   <!-- body -->
   <footer id="Footer"></footer>
-  <script src="https://smtpjs.com/v3/smtp.js">
-  </script>
+  <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+  emailjs.init('8H0cS_4YYUCDQtQVf')
+</script>
+  <!-- <script src="https://smtpjs.com/v3/smtp.js">
+  </script> -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
