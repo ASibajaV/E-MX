@@ -69,7 +69,7 @@ if  (localStorage.getItem("login_success")){
             
       <section >
           <form class="d-flex" role="search">
-            <input class="form-control me-2 rounded-pill" type="search" placeholder="Buscar..." aria-label="Search">
+            <input class="form-control me-2 rounded-pill" id="input" type="search" placeholder="Buscar..." aria-label="Search">
             <button class="btn btn-light rounded-pill" type="submit">Buscar</button>
           </form>
         
@@ -142,7 +142,7 @@ if  (localStorage.getItem("login_success")){
              
         <section>
             <form class="d-flex" role="search">
-              <input class="form-control me-2 rounded-pill" type="search" placeholder="Buscar..." aria-label="Search">
+              <input class="form-control me-2 rounded-pill" id="input" type="search" placeholder="Buscar..." aria-label="Search">
               <button class="btn btn-light rounded-pill" type="submit">Buscar</button>
             </form>
           
@@ -214,7 +214,7 @@ if  (localStorage.getItem("login_success")){
            
       <section>
           <form class="d-flex" role="search">
-            <input class="form-control me-2 rounded-pill" type="search" placeholder="Buscar..." aria-label="Search">
+            <input class="form-control me-2 rounded-pill" id="input" type="search" placeholder="Buscar..." aria-label="Search">
             <button class="btn btn-light rounded-pill" type="submit">Buscar</button>
           </form>
         
