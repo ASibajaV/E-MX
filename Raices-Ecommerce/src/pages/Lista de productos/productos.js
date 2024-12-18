@@ -224,3 +224,52 @@ categoriaTodos.addEventListener('click', ()=>{
 })*/
 
 
+// ----------------Agregar producto al carrito y local Storage-------------------
+// Variables globales
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+// Agregar producto al carrito
+function agregarAlCarrito(id) {
+  const producto = listaDeProductos.find(p => p.id === id);
+
+  if (!producto) return;
+
+  const productoEnCarrito = carrito.find(p => p.id === id);
+
+  if (productoEnCarrito) {
+    productoEnCarrito.cantidad += 1; // Incrementar cantidad si ya está en el carrito
+  } else {
+    carrito.push({ ...producto, cantidad: 1 }); // Agregar nuevo producto al carrito
+  }
+
+  guardarCarrito();
+  Swal.fire({
+    icon: 'success',
+    title: 'Producto añadido al carrito',
+    text: `${producto.name} se ha añadido a tu carrito.`,
+    showConfirmButton: false,
+    timer: 1500
+  });
+}
+
+
+// Conectar catálogo con el carrito
+// Guardar carrito en localStorage
+function guardarCarrito() {
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+function mostrarProductos(productos) {
+  const contenedorProductos = document.querySelector("#cartas_productos");
+  contenedorProductos.innerHTML = ''; // Limpiamos el contenedor
+
+  productos.forEach(producto => {
+    addItem(producto); // Llamar a la función que renderiza el producto
+  });
+}
+
+//Mostrar carrito actualizado al recargar
+document.addEventListener('DOMContentLoaded', () => {
+  mostrarProductos(listaDeProductos); // Mostrar catálogo
+  mostrarCarrito(); // Mostrar productos en el carrito (si tienes esta función)
+});

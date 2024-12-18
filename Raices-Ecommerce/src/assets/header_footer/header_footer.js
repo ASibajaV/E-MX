@@ -310,3 +310,68 @@ cerrarSesion.onclick = () => {
         window.location.href = "/Raices-Ecommerce/src/inicio.html";
     }, 1800);
 }
+
+
+
+// Carrito de compras
+document.addEventListener('DOMContentLoaded', () => {
+  if (!usuarioLogged) {
+    document.getElementById('Header').innerHTML = headerRM();
+  } else {
+    if (localStorage.getItem("login_success") === "cliente") {
+      document.getElementById('Header').innerHTML = clienteLoggedHeader();
+    } else {
+      document.getElementById('Header').innerHTML = artesanoLoggedHeader();
+    }
+  }
+
+  document.getElementById('Footer').innerHTML = footerRM();
+  actualizarCarrito();
+});
+
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+if (!Array.isArray(carrito)) carrito = [];
+
+
+function actualizarCarrito() {
+  // Actualizar el número de productos en el icono del carrito
+  const cantidadCarrito = carrito.reduce((total, producto) => total + producto.cantidad, 0);
+  document.getElementById('carritoCantidad').textContent = cantidadCarrito;
+
+  // Actualizar el contenido del modal con los productos en el carrito
+  const carritoContenido = document.getElementById('carritoContenido');
+  carritoContenido.innerHTML = ''; // Limpiar el contenido anterior
+
+  if (carrito.length === 0) {
+    carritoContenido.innerHTML = '<p>Tu carrito está vacío.</p>';
+  } else {
+    carrito.forEach(producto => {
+      const productoHTML = `
+        <div class="d-flex justify-content-between">
+          <span>${producto.name}</span>
+          <span>$${producto.precio} x ${producto.cantidad}</span>
+        </div>
+      `;
+      carritoContenido.innerHTML += productoHTML;
+    });
+
+    // Mostrar el total
+    const total = carrito.reduce((sum, producto) => sum + producto.precio * producto.cantidad, 0);
+    const totalHTML = `
+      <div class="d-flex justify-content-between">
+        <strong>Total:</strong>
+        <strong>$${total}</strong>
+      </div>
+    `;
+    carritoContenido.innerHTML += totalHTML;
+  }
+}
+
+// Llamar a la función para actualizar el carrito cada vez que se cargue la página o se añada un producto
+actualizarCarrito();
+
+
+// Si el carrito esta
+if (carrito.length === 0) {
+  document.getElementById('carritoCantidad').textContent = 0;
+}
