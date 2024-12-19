@@ -23,7 +23,7 @@ function generarObjetoUsuario() {
         codigoPostal: codigoPostal,
         estado: estadoSeleccionado,
         tipoUsuario: tipoUsuario,
-    };
+    };     
 
     // Convertir el objeto en formato JSON
     const vendedorJSON = JSON.stringify(vendedor, null, 2); // Formateado para mejor visualización (opcional)
@@ -252,19 +252,40 @@ function validarFormulario() {
     document.getElementById("direccion").className="form-control  pt-2 pb-2";
     document.getElementById("telefono").className="form-control  pt-2 pb-2";
     document.getElementById("cp").className="form-control  pt-2 pb-2";
+        
+    const url = `http://localhost:8080/api/v1/artesano/new-user`;
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(vendedor)
+    })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log('Guardado', data)
+        })
+        .catch(error => {
+            console.error(error);
+        })
+
     Swal.fire({
         icon: "success",
         title: "Formulario válido",
         text: "¡Tu formulario ha sido enviado exitosamente!",
-        timer: 2000,
+        timer: 3000,
         timerProgressBar: true,
         showConfirmButton: false,
     });
     setTimeout(()=>{
         document.getElementById("miFormulario").reset();
-    },2000)
+    },3000)
+
     return true;
-}
+    }
 }
 
 

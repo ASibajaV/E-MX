@@ -1,5 +1,3 @@
-const login = document.getElementById("loginButton");
-
 //Valida si un usuario ya esta en sesión. No deberia tener existir la posibilidad, pero previene el error.
 if  (localStorage.getItem("login_success")){
   Swal.fire({
@@ -23,42 +21,113 @@ function validarLogin(usuarioInput, contrasenaInput) {
           timer: 2000,
         });
         return false;
-      }
-      
-      if (contrasenaInput === "") {
+    }else if (contrasenaInput === "") {
         Swal.fire({
           icon: "error",
           title: "Ingresa tu contraseña",
           timer: 2000,
         });
         return false;
+      }else{
+        return true; //solo para que se vea en el click que sí de be intentar validar el login.
       }
 }
 
-//Validación usuario y contraseña correctos
+let esCliente;
+
+//EVENTO DE CLICK
+const login = document.getElementById("loginButton");
 login.onclick = (e) => {
 
     const emailInput = document.getElementById("inputEmail").value; //Recibe bien los valores
     const passwordInput = document.getElementById("inputContrasena").value; //Recibe bien los valores
-    
-    const usuarioData = JSON.parse(localStorage.getItem(emailInput)); //Recibe password en localStorage
-    if (usuarioData === null){
-      console.log("Failure!");
-      console.log("email: " +emailInput);
-      console.log("password: " +passwordInput);
-      Swal.fire({
-        icon: "error",
-        title: "Usuario y/o contraseña erroneo",
-        timer: 2000,    
-      });
-    }
 
-    validarLogin(emailInput, passwordInput); //Function para validar que hay algo 
+    //!!!!En lugar de 'users' cada tipo de usuario esta como /cliente o /artesano
+    /*
+    if (esCliente == true){
+      const url = `http://localhost:8080/api/v1/cliente/email/${email}`;
+    }else{
+      const url = `http://localhost:8080/api/v1/artesano/email/${email}`;
+    }*/
+    
+    const url = `http://localhost:8080/api/v1/cliente/email/${emailInput}`;
+       
+    let nombreFetch;
+    let correoFetch;
+    let passwordFetch;
+    let tipoUsuarioFetch;
+
+    validarLogin(emailInput, passwordInput);
 
     e.preventDefault();
 
+    if (validarLogin){ //para que el código no intente correr si hay campos vacíos
 
-    //Crear validación de usuario admin
+      fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            nombreFetch = data.nombre;//nombre del usuario, para mostrarlo en el login exitoso
+            correoFetch = data.correo; //Busca el correo, ya sea de artesano o cliente
+            passwordFetch = data.contrasena; //!!!!Artesano guarda la variable como password, y cliente como contrasena, suiero cambiar lo de cliente a Password
+            tipoUsuarioFetch = data.tipoUsuario; //Tipo de usuario, que determina si el usuario verá el carrito de compras o formulario de producto
+            console.log(data)
+          })
+          .catch(error => { 
+            //Para no decir al usuario que el correo no existe se muestra lo mismo a que si hubiera introducido una contraseña incorrecta
+            Swal.fire({
+              icon: "error",
+              title: "Usuario y/o contraseña erroneo",
+              timer: 2000,    
+            });   
+            console.error(error)                    
+          })
+      
+      /*LOCAL STORAGE CODE----------------------------------------------------- to be deleted
+      const usuarioData = JSON.parse(localStorage.getItem(emailInput)); //Recibe password en localStorage
+      if (usuarioData === null){
+        console.log("Failure!");
+        console.log("email: " + emailInput);
+        console.log("password: " + passwordInput);
+        Swal.fire({
+          icon: "error",
+          title: "Usuario y/o contraseña erroneo",
+          timer: 2000,    
+        });
+      }*/
+
+      //VALIDACIóN CORRREO-PASSWORD
+      
+      setTimeout(() => {
+        console.log(passwordInput)
+        console.log(passwordFetch)
+        if (passwordInput == passwordFetch){ //Login exitoso!
+          console.log("Success!");
+          localStorage.setItem("login_success", tipoUsuarioFetch); //se crea un objeto que le dirá al sistema que esta inciada la sesión y mostrar que tipo de usuario es para mostrar carrito o formulario
+          Swal.fire({
+            icon: "success",
+            title: "Bienvenidx, " + nombreFetch,
+            showConfirmButton: false,
+            timer: 2000,
+            });
+          setTimeout(() => {
+              window.location.href = "/Raices-Ecommerce/src/inicio.html"; //Para llevar al usuarix a la página de inicio después de un login existoso.
+          }, 2000);
+        }else{ //En este punto sabemos que el correo sí es correcto, pero la contraseña no. Aun así se indica al usuario el mensaje de abajo para no dar pista de qué está mal
+          Swal.fire({
+            icon: "error",
+            title: "Usuario y/o contraseña erroneo. ¿Seguro eres " +tipoUsuarioFetch+ "?",
+            timer: 2000,    
+          });
+        }
+
+      }, 2000);
+
+      console.log("Antes de terminar función de click")
+      
+   }
+}
+
+    /*VERSION LOCALSTORAGE---------------------------------------------------- to be deleted
     if (usuarioData === null && (passwordInput != "" && emailInput != "")){ //Para que no genere error un null de usuarioData
       console.log("Failure!");
       console.log("email: " +emailInput);
@@ -82,13 +151,10 @@ login.onclick = (e) => {
           window.location.href = "/Raices-Ecommerce/src/inicio.html"; //Para llevar al usuarix a la página de inicio después de un login existoso.
       }, 2000);
     }else if (emailInput.password != passwordInput || (passwordInput != "" && emailInput != "")){ //else if puesto para para que no sobrescriba el swal.fire de validarLogin
-      console.log("Failure!");
-      console.log("email: " +emailInput);
-      console.log("password: " +passwordInput);
       Swal.fire({
         icon: "error",
         title: "Usuario y/o contraseña erroneo",
         timer: 2000,    
       });
     }
-}
+}*/

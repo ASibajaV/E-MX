@@ -2,39 +2,31 @@
 function generarObjetoCliente() {
     const nombre = document.getElementById("nombre").value.trim();
     const apellido = document.getElementById("apellido").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
+    const correo = document.getElementById("email").value.trim();
+    const contrasena = document.getElementById("password").value.trim();
     const telefono = document.getElementById("telefono").value.trim();
     const direccion = document.getElementById("direccion").value.trim();
     const ciudad = document.getElementById("inputCity").value.trim();
     const estadoSeleccionado = document.getElementById("inputState").value;
-    const codigoPostal = document.getElementById("cp").value.trim();
-    const tipoUsuario = "cliente";
-    
+    const codigo_postal = document.getElementById("cp").value.trim();
+    const tipo_usuario = "cliente";
     
 
     // Crear un objeto JavaScript con los datos del formulario
     const cliente = {
         nombre: nombre,
         apellido: apellido,
-        email: email,
-        password: password,
+        correo: correo,
+        contrasena: contrasena,
         direccion: direccion,
         ciudad: ciudad,
         telefono: telefono,
-        codigoPostal: codigoPostal,
+        codigo_postal: codigo_postal,
         estado: estadoSeleccionado,
-        tipoUsuario: tipoUsuario,
+        tipo_usuario: "cliente"
     };
 
-    // Convertir el objeto en formato JSON
-    const clienteJSON = JSON.stringify(cliente, null, 2); // Formateado para mejor visualización (opcional)
-    
-    // Mostrar el JSON en la consola para pruebas
-    console.log(clienteJSON);
-
-    // return clienteJSON; // Devolver el JSON por si necesitas usarlo en otro lugar
-    localStorage.setItem(email,clienteJSON);
+    return cliente;
 }
 
 function validarFormulario() {
@@ -240,7 +232,7 @@ function validarFormulario() {
     } else {
 
     // Si todas las validaciones pasan
-    generarObjetoCliente();
+    const cliente = generarObjetoCliente();
     document.getElementById("nombre").className="form-control  pt-2 pb-2";
     document.getElementById("apellido").className="form-control  pt-2 pb-2";
     document.getElementById("email").className="form-control  pt-2 pb-2";
@@ -248,20 +240,41 @@ function validarFormulario() {
     document.getElementById("direccion").className="form-control  pt-2 pb-2";
     document.getElementById("telefono").className="form-control  pt-2 pb-2";
     document.getElementById("cp").className="form-control  pt-2 pb-2";
+    
+    const url = `http://localhost:8080/api/v1/cliente/new-cliente`;
+    console.log (cliente)
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cliente)
+    })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log('Guardado', data)
+        })
+        .catch(error => {
+            console.error(error);
+        })
+
     setTimeout(()=>{
         document.getElementById("miFormulario").reset();
-    },2000)
+    },3000)
     Swal.fire({
         icon: "success",
         title: "Formulario válido",
         text: "¡Tu formulario ha sido enviado exitosamente!",
-        timer: 2000,
+        timer: 3000,
         timerProgressBar: true,
         showConfirmButton: false,
     });
 
     return true;
-}
+    }
 }
 
 // Para validar solo que seleccione un estado de la lista

@@ -22,6 +22,28 @@ const listaDeProductos=[
       }
 ]
 
+function agregarArtesania(){
+  let artesania = JSON.parse(localStorage.getItem('productos'));
+
+
+
+    listaDeProductos.push({
+      "id": artesania.id,
+      "imagen": artesania.imagen,
+      "name": artesania.name,
+      "precio":artesania.precio,
+      "descripcion": artesania.descripcion,
+      "inventario": artesania.inventario,
+      "categoría": artesania.categoria
+    })
+
+
+
+}
+
+agregarArtesania();
+
+
 //Funcion que agregue objetos al arreglo.
 function agregarProducto(){
   listaDeProductos.push({
@@ -44,7 +66,7 @@ function eliminarTodaLaLista(){
   listaDeProductos.length=0;
   console.log("Todos los productos han sido eliminados.");
 }
-// funcion para agregar un nuevo elemento
+// funcion para agregar un nuevo elemento //CREO ESTA FUNCION SE REPITE
 function agregarProducto(){
   listaDeProductos.push({
       "id": 8, "imagen": "luna.png", "name":"Collar de luna", "precio":"300.00", "descripcion":"Some quick example text to build on the card title and make up the bulk of the card's content.", "inventario": 5, "categoría": "Joyeria"
@@ -123,6 +145,7 @@ function addItem(item) {
       </div>
     </div>
   `;
+  
   const contenedorProductos = document.querySelector("#cartas_productos");
   contenedorProductos.innerHTML += itemHTML;
   }
