@@ -50,7 +50,7 @@ login.onclick = (e) => {
       const url = `http://localhost:8080/api/v1/artesano/email/${email}`;
     }*/
     
-    const url = `http://localhost:8080/api/v1/cliente/email/${emailInput}`;
+    const url = `http://localhost:8080/api/v1/artesano/email/${emailInput}`;
        
     let nombreFetch;
     let correoFetch;
@@ -68,7 +68,7 @@ login.onclick = (e) => {
           .then(data => {
             nombreFetch = data.nombre;//nombre del usuario, para mostrarlo en el login exitoso
             correoFetch = data.correo; //Busca el correo, ya sea de artesano o cliente
-            passwordFetch = data.contrasena; //!!!!Artesano guarda la variable como password, y cliente como contrasena, suiero cambiar lo de cliente a Password
+            passwordFetch = data.password; //!!!!Artesano guarda la variable como password, y cliente como contrasena, suiero cambiar lo de cliente a Password
             tipoUsuarioFetch = data.tipoUsuario; //Tipo de usuario, que determina si el usuario verá el carrito de compras o formulario de producto
             console.log(data)
           })
