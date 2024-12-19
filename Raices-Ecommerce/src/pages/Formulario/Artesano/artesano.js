@@ -2,37 +2,30 @@
 function generarObjetoUsuario() {
     const nombre = document.getElementById("nombre").value.trim();
     const apellido = document.getElementById("apellido").value.trim();
-    const email = document.getElementById("email").value.trim();
+    const correo = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
     const direccion = document.getElementById("direccion").value.trim();
     const telefono = document.getElementById("telefono").value.trim();
-    const codigoPostal = document.getElementById("cp").value.trim();
-    const estadoSeleccionado = document.getElementById("inputState").value;
+    const codigo_postal = document.getElementById("cp").value.trim();
+    const estado = document.getElementById("inputState").value;
     const empresa = document.getElementById("inputAddress3").value.trim();
-    const tipoUsuario="artesano";
+    const tipo_usuario="artesano";
 
     // Crear un objeto JavaScript con los datos del formulario
-    const vendedor = {
+    const artesano = {
         nombre: nombre,
         apellido: apellido,
         empresa:empresa,
-        email: email,
+        correo: correo,
         password: password,
         direccion: direccion,
         telefono: telefono,
-        codigoPostal: codigoPostal,
-        estado: estadoSeleccionado,
-        tipoUsuario: tipoUsuario,
-    };
+        codigo_postal: codigo_postal,
+        estado: estado,
+        tipo_usuario: "artesano",
+    };     
 
-    // Convertir el objeto en formato JSON
-    const vendedorJSON = JSON.stringify(vendedor, null, 2); // Formateado para mejor visualización (opcional)
-    
-    // Mostrar el JSON en la consola para pruebas
-    console.log(vendedorJSON);
-
-    /* return vendedorJSON; */ // Devolver el JSON por si necesitas usarlo en otro lugar
-    localStorage.setItem(email,vendedorJSON);
+    return artesano;    
 }
 
 function validarFormulario() {
@@ -244,7 +237,7 @@ function validarFormulario() {
     } else {
 
     // Si todas las validaciones pasan
-    generarObjetoUsuario();
+    const artesano = generarObjetoUsuario();
     document.getElementById("nombre").className="form-control  pt-2 pb-2";
     document.getElementById("apellido").className="form-control  pt-2 pb-2";
     document.getElementById("email").className="form-control  pt-2 pb-2";
@@ -252,19 +245,40 @@ function validarFormulario() {
     document.getElementById("direccion").className="form-control  pt-2 pb-2";
     document.getElementById("telefono").className="form-control  pt-2 pb-2";
     document.getElementById("cp").className="form-control  pt-2 pb-2";
+        
+    const url = `http://localhost:8080/api/v1/artesano/new-user`;
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(artesano)
+    })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log('Guardado', data)
+        })
+        .catch(error => {
+            console.error(error);
+        })
+
     Swal.fire({
         icon: "success",
         title: "Formulario válido",
         text: "¡Tu formulario ha sido enviado exitosamente!",
-        timer: 2000,
+        timer: 3000,
         timerProgressBar: true,
         showConfirmButton: false,
     });
     setTimeout(()=>{
         document.getElementById("miFormulario").reset();
-    },2000)
+    },3000)
+
     return true;
-}
+    }
 }
 
 
