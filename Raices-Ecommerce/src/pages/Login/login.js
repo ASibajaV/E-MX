@@ -42,15 +42,23 @@ login.onclick = (e) => {
     const emailInput = document.getElementById("inputEmail").value; //Recibe bien los valores
     const passwordInput = document.getElementById("inputContrasena").value; //Recibe bien los valores
 
-    //!!!!En lugar de 'users' cada tipo de usuario esta como /cliente o /artesano
-    /*
-    if (esCliente == true){
-      const url = `http://localhost:8080/api/v1/cliente/email/${email}`;
-    }else{
-      const url = `http://localhost:8080/api/v1/artesano/email/${email}`;
-    }*/
-    
-    const url = `http://localhost:8080/api/v1/artesano/email/${emailInput}`;
+    let url; let tipoUsuarioError;
+
+      if (document.getElementById('soyCliente').checked){
+        url = `http://localhost:8080/api/v1/cliente/email/${emailInput}`;
+        tipoUsuarioError = "cliente";
+      }else if (document.getElementById('soyArtesana').checked){
+        url = `http://localhost:8080/api/v1/artesano/email/${emailInput}`;
+        tipoUsuarioError = "vendedor/a";
+      }else{
+        console.log("Error con check de artesana/cliente");
+        Swal.fire({
+          icon: "error",
+          title: "Marca la casilla de cliente o de vendedor/a, dependiendo de cómo estés iniciando sesión.",
+          timer: 5000,    
+        });
+        
+      }
        
     let nombreFetch;
     let correoFetch;
@@ -60,25 +68,30 @@ login.onclick = (e) => {
     validarLogin(emailInput, passwordInput);
 
     e.preventDefault();
-
-    if (validarLogin){ //para que el código no intente correr si hay campos vacíos
+    
+    //Que el fetch no corra si faltan campos por llenar
+    if (validarLogin && (document.getElementById('soyCliente').checked || document.getElementById('soyArtesana').checked)){
 
       fetch(url)
           .then(response => response.json())
           .then(data => {
             nombreFetch = data.nombre;//nombre del usuario, para mostrarlo en el login exitoso
             correoFetch = data.correo; //Busca el correo, ya sea de artesano o cliente
-            passwordFetch = data.password; //!!!!Artesano guarda la variable como password, y cliente como contrasena, suiero cambiar lo de cliente a Password
+            if(document.getElementById('soyCliente').checked){
+              passwordFetch = data.contrasena; //!!!!Artesano guarda la variable como password, y cliente como contrasena, suiero cambiar lo de cliente a Password
+            }else{
+              passwordFetch = data.password; //!!!!Artesano guarda la variable como password, y cliente como contrasena, suiero cambiar lo de cliente a Password
+            }
             tipoUsuarioFetch = data.tipoUsuario; //Tipo de usuario, que determina si el usuario verá el carrito de compras o formulario de producto
             console.log(data)
           })
           .catch(error => { 
-            //Para no decir al usuario que el correo no existe se muestra lo mismo a que si hubiera introducido una contraseña incorrecta
+           /* //Para no decir al usuario que el correo no existe se muestra lo mismo a que si hubiera introducido una contraseña incorrecta
             Swal.fire({
               icon: "error",
               title: "Usuario y/o contraseña erroneo",
               timer: 2000,    
-            });   
+            }); */  
             console.error(error)                    
           })
       
@@ -107,20 +120,20 @@ login.onclick = (e) => {
             icon: "success",
             title: "Bienvenidx, " + nombreFetch,
             showConfirmButton: false,
-            timer: 2000,
+            timer: 1000,
             });
           setTimeout(() => {
               window.location.href = "/Raices-Ecommerce/src/inicio.html"; //Para llevar al usuarix a la página de inicio después de un login existoso.
-          }, 2000);
-        }else{ //En este punto sabemos que el correo sí es correcto, pero la contraseña no. Aun así se indica al usuario el mensaje de abajo para no dar pista de qué está mal
+          }, 1000);
+        }else{ //En este punto sabemos que el correo sí es correcto, pero la contraseña no y tipo de usuario no. Aun así se indica al usuario el mensaje de abajo para no dar pista de qué está mal
           Swal.fire({
             icon: "error",
-            title: "Usuario y/o contraseña erroneo. ¿Seguro eres " +tipoUsuarioFetch+ "?",
-            timer: 2000,    
+            title: "Usuario y/o contraseña erroneo. Verifica que la casilla marcada como " +tipoUsuarioError+ ", tu correo y contraseña sean correctos.",
+            timer: 5000,    
           });
         }
 
-      }, 2000);
+      }, 1000);
 
       console.log("Antes de terminar función de click")
       
