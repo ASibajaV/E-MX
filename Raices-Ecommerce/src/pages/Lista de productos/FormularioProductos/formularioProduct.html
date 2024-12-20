@@ -31,13 +31,13 @@
         <div class="container-fluid d-flex justify-content-center " id="formulario">
               <div class="cardForm rounded-4 " style="width: 600px; margin-bottom: 100px; margin-top: 50px;">
                 <div class="cardBodyForm justify-content-center rounded-4 "
-                  style=" background: linear-gradient(to bottom, #fc94b7, #f06292); padding: 20px;">
+                  style=" background: linear-gradient(to bottom, #73c2fb, #97B1DA); padding: 20px;">
                   <h5 class="cardForm-title text-center texto "> Formulario de productos</h5>
                   <div class="conteinerForm-fluid d-flex flex-column justify-content-center mt-5">
                     <form action="#" id="formProduct">
-                      <label for="exampleFormControlInput1" class="form-label">Id: </label>
+                      <label for="exampleFormControlInput1" class="form-label">Id de artesano: </label>
                       <input type="number" min="1" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="id"
-                        aria-describedby="emailHelp" placeholder="Ingresa el Id del producto">
+                        aria-describedby="emailHelp" placeholder="Ingresa tu Id de artesano">
                       <p id="mensajeError1"></p>
                       <label for="exampleFormControlInput1" class="form-label">Imagen: </label>
                       <input type="text" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="imagen"
@@ -64,11 +64,11 @@
                     <label for="exampleFormControlInput1" class="form-label">Categoría: </label>
                     <select id="categoria" style="width: 562px;height: 32px; border-radius: 5px;">
                         <option value="EligeUnaOpcion">Elige una opcion </option>
-                        <option value="Miel">Miel</option>
-                        <option value="Bolsas">Bolsas</option>
-                        <option value="Cafe">Café</option>
-                        <option value="Joyería">Joyería</option>
-                        <option value="Otros">Otros</option>
+                        <option value="1">Café</option>
+                        <option value="2">Miel</option>
+                        <option value="3">Bolsas</option>
+                        <option value="4">Joyería</option>
+                        <option value="5">otros</option>
                       </select>
                     <!--<input type="text" class="form-control w-100 mb-0 formu1" style="height: 50px;" id="name"
                       aria-describedby="emailHelp" placeholder="Ingresa el nombre del producto">
@@ -77,12 +77,13 @@
                     <label for="exampleFormControlInput1" class="form-label">Estado: </label>
                     <select id="estado" style="width: 562px;height: 32px; border-radius: 5px;">
                         <option value="EligeUnaOpcion">Elige una opcion </option>
-                        <option value="Nuevo">Nuevo</option>
-                        <option value="Promociones">Promociones</option>
-                        <option value="Destacado">destacado</option>
-                        <option value="Destacado">cotidiano</option>
+                        <option value="1">Favoritos</option>
+                        <option value="2">Tendencias de temporada</option>
+                        <option value="3">Descuentos</option>
+                        <option value="4">Lo más nuevo</option>
+                        <option value="5">Cotidiano</option>
                       </select>
-                      <br>
+                      <br>              
                       <!--Campo para la descripción del producto -->
                       <label for="exampleFormControlInput1" class="form-label">Descripción: </label>
                       <textarea class="form-control formu1 " style="height: 110px;" id="descripcion" rows="3"
@@ -106,7 +107,7 @@
             <!--Aqui empieza la otra sección-->
             
             <div class="container-fluid d-flex flex-column mb-5">
-              <button id="eliminarTodos" class="btn btn-danger mt-5">Eliminar Todo</button>
+              <button id="eliminarTodos" class="btn btn-danger mt-5" style="display: none">Eliminar Todo</button>
               <div id="productos">
                   <h2>Lista de Productos</h2>
                   <div class="productos-container">
@@ -130,5 +131,3 @@
     <script src="/Raices-Ecommerce/src/assets/header_footer/header_footer.js"></script>
     
 </body>
-
-
